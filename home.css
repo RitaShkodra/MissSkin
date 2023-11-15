@@ -1,0 +1,34 @@
+
+*{
+    
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    background-color: #ffb6d9;
+    color: white;
+    height: 15px;
+    padding: 10px;
+    font-size: 10px;
+    z-index: 1000;
+    position: sticky;
+    top: 0px; 
+    width: 100%;
+
+}
+.nav label{
+    margin: 0 10px;
+}
+
+.nav .LogIn{
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.nav .MissSkin{
+    margin-left: 22%;
+}
