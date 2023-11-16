@@ -1,10 +1,16 @@
-
+@font-face{
+    font-family: myFont;
+    src: url(Garet-Book.ttf);
+}
 *{
+    font-family: myFont;
+   
     
 }
 body{
     margin: 0;
     padding: 0;
+   
 }
 .nav{
     display: flex;
@@ -33,4 +39,39 @@ body{
 
 .nav .MissSkin{
     margin-left: 30%;
+}
+.img_mainbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 80px;
+}
+.img_mainbox .imgbox{
+    width: 20%;
+    height: 300px;
+}
+.imgbox a img{
+    width: 100%;
+    height: 100%;
+}
+.imgbox:hover{
+   transform: scale(1.2);
+   transition: transform 0.3s ease;
+}
+.imgbox label{
+    margin-left: 110px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #d94496;
+}
+.quote{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 80px;
+    width: 100%;
+    height: 300px;
+    color: #d94496;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
 }
