@@ -133,4 +133,13 @@ body{
         justify-content: center;
 }
 
+.minifooter a img{
+    width: 30px;
+    height: 30px;
+    
+}
+.minifooter #icon{
+    text-align: center;
+}
+
 
