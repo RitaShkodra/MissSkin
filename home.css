@@ -104,3 +104,33 @@ body{
     transition: transform 0.6s ease;
     
 }
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffb6d9;
+    color: white;
+    height: 350px;
+    margin-right: 0px;
+    padding-top: 10px;
+}
+.minifooter{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+    width: 22.1%;
+    padding: 2px;
+}
+.minifooter p{
+    margin-bottom: 3px;
+}
+
+ .minifooter #footerTitle{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+
+
