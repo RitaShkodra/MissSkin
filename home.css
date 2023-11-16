@@ -75,3 +75,32 @@ body{
     font-size: 45px;
     font-weight: bold;
 }
+
+.blog_mainbox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.leftbox img{
+    margin: 30px;
+    width: 700px;
+    height: 350px;
+}
+
+.blogtext{
+    width: 500px;
+    height: 200px;
+    display: block;
+    position: relative;
+    transform: translate(-200px,90px);
+    justify-content: center;
+    background-color: white;
+    box-shadow: 5px 5px 5px;
+    padding: 10px;
+    
+}
+
+ .blogtext:hover{
+    transform: scale(1.2);
+    transition: transform 0.6s ease;
+    
+}
