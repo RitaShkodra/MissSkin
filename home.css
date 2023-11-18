@@ -174,16 +174,18 @@ body{
     box-sizing: border-box;
     
 }
-.w-50{
-    width: 50%;
+.w-40{
+    width:40%;
     box-sizing: border-box;
 }
+
 .input h1{
     text-align: center;
     margin-top: unset;
     margin-bottom: 20px;
 }
 .input{
+    width: 60%;
     margin: 40px;
     margin-left: 120px;
     box-sizing: border-box;
