@@ -43,3 +43,91 @@ body{
 .nav .MissSkin{
     margin-left: 30%;
 }
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+  body{
+    background: #fff;
+    color:black;
+    font-size: 15px;
+    line-height: 1.5;
+    width: 100%;
+    background-color: white;
+   }
+   a{
+    color: black;
+    text-decoration: none;
+  }
+  .uj_img{
+    width: 85%;
+    height: 600px;
+    margin-right: 200px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .faqja{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-left: 5%;
+    height: 600px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 10px;
+    background-color:  #D1D0CE;
+    margin-bottom: 100px;
+  }
+  .login-form{
+    width: 500px;
+    background:#D1D0CE;
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-top: 50px;
+  }
+  #login-center{
+    margin-top: 90px;
+  }
+  .login-form h1{
+    text-align: center;
+    color:black;
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+  }
+  .login-form form{
+    padding: 0 40px;
+    box-sizing: border-box;
+    }
+
+    form .text_form{
+        position: relative;
+        border-bottom: 2px solid white;
+        margin: 30px 0;
+        }
+    
+    .text_form input{
+        width: 100%;
+        padding: 0 5px;
+        height: 40px;
+        font-size: 16px;
+        border: none;
+        background: none;
+        outline: none;
+    }
+    .text_form label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        color: #adadad;
+        transform: translateY(-50%);
+        font-size: 16px;
+        pointer-events: none;
+        transition: .5s;
+        }
+        
+
