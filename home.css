@@ -266,7 +266,7 @@ body{
 }
 .serums{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     flex-direction: row;
     box-sizing: border-box;
  
@@ -275,29 +275,41 @@ body{
     width:40%;
     height: 600px;
     margin-bottom: 300px;
-    margin-left: 160px;
+    margin-left: 100px;
     margin-top: 30px;
   
 }
 .serum_products{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     justify-content: center;
     padding: 20px;
+    margin-left: 20px;
+   margin-top: 0px;
+    overflow: hidden;
 
+}
+
+.serum_row{
+
+    display: flex;
+    flex-direction: row;
+    
 }
 .serum_product{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 20%;
-    height: 300px;
+    width: 300px;
+    height: 350px;
     margin: 10px;
     padding: 20px;
+    margin-right: 20px;
 
 }
 .serum_product img{
-    width: 150px;
+    width: 200px;
     height: 200px;
 }
 .serum_product h1{
@@ -305,3 +317,12 @@ body{
     text-align: center;
 
 }
+.serum_product label{
+    text-align: center;
+    font-size: 12px;
+    color: rgb(178, 174, 174);
+}
+.serum_product p{
+    color: #d94496;
+}
+
