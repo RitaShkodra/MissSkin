@@ -219,4 +219,9 @@ body{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.oferta-face img{
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+}
 
