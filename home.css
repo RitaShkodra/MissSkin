@@ -224,4 +224,42 @@ body{
     width: 100%;
     margin-bottom: 20px;
 }
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height:450px ;
+    padding: 20px;
+    margin: 10px;
+    justify-content: center;
+    
+}
+.product h1{
+    font-size: 15px;
+    text-align: center;
+}
+.products .product img{
+    width: 350px;
+    height: 350px;
+    align-items: center;
+
+
+}
+ .product p{
+    text-align: center;
+    font-weight: bold;
+    color: #d94496;
+    display: block;
+    margin-bottom: 10px;
+}
+.products .product label{
+    font-size: 12px;
+    color: rgb(178, 174, 174);
+}
 
