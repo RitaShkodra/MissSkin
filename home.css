@@ -207,4 +207,8 @@ body{
     color: white;
     
 }
+.oferta img{
+    box-sizing: border-box;
+    width: 100%;
+}
 
