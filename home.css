@@ -264,4 +264,18 @@ body{
     font-size: 12px;
     color: rgb(178, 174, 174);
 }
+.serums{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+ 
+}
+.serumfoto{
+    width:40%;
+    height: 600px;
+    margin-bottom: 300px;
+    margin-left: 160px;
+    margin-top: 30px;
+  
+}
 
