@@ -211,4 +211,12 @@ body{
     box-sizing: border-box;
     width: 100%;
 }
+.blog{
+    font-size: 50px;
+    text-align: center;
+    color: #d94496;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
