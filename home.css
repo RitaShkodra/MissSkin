@@ -325,4 +325,31 @@ body{
 .serum_product p{
     color: #d94496;
 }
+.sociallinks{
+    text-align: center;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+.sociallinks h1{
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+.sociallinks p{
+    margin-top: 60px;
+    margin-bottom: 50px;
+    color: #d94496;
+    font-weight: bold;
+    font-size: 30px;
+}
+.sociallinks img{
+    width: 30px;
+    height: 30px;
+}
+.sociallinks button{
+    background-color: #d94496;
+    color: white;
+    font-size: 30px;
+    margin-left: 40px;
+}
+
 
