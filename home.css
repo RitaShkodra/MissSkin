@@ -267,7 +267,8 @@ body{
 .serums{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
+    box-sizing: border-box;
  
 }
 .serumfoto{
@@ -278,4 +279,29 @@ body{
     margin-top: 30px;
   
 }
+.serum_products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
 
+}
+.serum_product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 20%;
+    height: 300px;
+    margin: 10px;
+    padding: 20px;
+
+}
+.serum_product img{
+    width: 150px;
+    height: 200px;
+}
+.serum_product h1{
+    font-size: 15px;
+    text-align: center;
+
+}
