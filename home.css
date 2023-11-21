@@ -361,4 +361,102 @@ hr{
     margin-top: 30px;
 }
 
+.beauty{
+    text-align: center;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+.beauty p{
+    font-size: 17px;
+    
+    
+}
+.p1{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+.beauty h1{
+    color: #d94496;
+    margin-top: 40px;
+    
+}
+.sign-button{
+    background-color: #d94496;
+    color: white;
+    border: #ffb6d9;
+    font-size: 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    
+}
 
+.bodycream h1{
+    font-size: 30px;
+    text-align: center;
+    padding: 30px;
+}
+.bodyC{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+ 
+}
+.bodyfoto img{
+    width:95%;
+    height: 600px;
+    margin-bottom: 300px;
+    margin-left: 40px;
+    margin-top: 200px;
+    margin-right: 20px;
+}
+
+
+.body_products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    margin-left: 20px;
+   margin-top: 0px;
+    overflow: hidden;
+    
+
+}
+
+.body_row{
+
+    display: flex;
+    flex-direction: row;
+   
+    
+}
+.body_product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 300px;
+    height: 350px;
+    margin: 10px;
+    padding: 20px;
+    margin-right: 5px;
+    
+
+}
+.body_product img{
+    width: 175px;
+    height: 175px;
+}
+.body_product h1{
+    font-size: 15px;
+    text-align: center;
+
+}
+.body_product label{
+    text-align: center;
+    font-size: 12px;
+    color: rgb(178, 174, 174);
+}
+.body_product p{
+    color: #d94496;
+}
