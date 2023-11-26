@@ -532,7 +532,7 @@ hr{
         padding: 20px;
         margin: 10px;
         justify-content: center;
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     
         
     }
@@ -562,13 +562,8 @@ hr{
     .HairFoto img{
         box-sizing: border-box;
         width: 100%;
-        margin-top: 60px;
+        margin-top: 40px;
         height: 400px;
     }
 
-    .saleOffers h1{
-        font-size: 30px;
-        text-align: center;
-        padding: 30px;
-
-    }
+    
