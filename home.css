@@ -460,3 +460,57 @@ hr{
 .body_product p{
     color: #d94496;
 }
+
+.bproducts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+}
+.bproduct{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    margin: 10px;
+    width: 350px;
+    height: 350px;
+}
+.bproduct h1{
+    font-size: 15px;
+    text-align: center;
+}
+.bproduct img{
+    width: 250px;
+    height: 250px;
+    align-items: center;
+
+
+}
+ .bproduct p{
+    text-align: center;
+    font-weight: bold;
+    color: #d94496;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.bproduct label{
+    font-size: 12px;
+    color: rgb(178, 174, 174);
+}
+.bodyimages{
+    display: flex;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   justify-content: space-evenly;
+}
+.bodyimages img{
+    width: 40%;
+    height: 600px;
+}
+.hair h1{
+    text-align: center;
+    font-size: 30px;
+    padding: 30px;
+}
