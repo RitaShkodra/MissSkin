@@ -688,7 +688,17 @@ hr{
     .bodyimages img{
         height: 400px;
     }
-    }    
-=======
-    
->>>>>>> 080104f6f079e52c013c48bee9a7437721ed2deb
+    .registerbox{
+        width: 100%;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+    }
+    .input{
+        display: block;
+        width: 100%;
+        margin-left: unset;
+        text-align: left;
+    }
+    }   
+
+
