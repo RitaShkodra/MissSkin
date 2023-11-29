@@ -53,3 +53,42 @@ function validateLogin(){
     }
     
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    var slider = document.getElementById("slider");
+    var slides = document.querySelectorAll(".slide");
+    var i = 0;
+    var totalSlides = slides.length;
+    var intervalId;
+
+    function nextSlide() {
+        if (i < totalSlides - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+        updateSlider();
+    }
+
+    function updateSlider() {
+        var newPosition = -i * 100 + "%";
+        slider.style.transform = "translateX(" + newPosition + ")";
+    }
+
+    function startSlider() {
+        intervalId = setInterval(nextSlide, 2000); //nmilisekonda
+    }
+
+    function stopSlider() {
+        clearInterval(intervalId);
+    }
+
+    // Fillon slideri sa te hapet faqja
+    startSlider();
+
+    // Pauzo slideshow
+    slider.addEventListener("mouseover", stopSlider);
+
+    // Resume sliderin kur hiqet mausi
+    slider.addEventListener("mouseout", startSlider);
+});
