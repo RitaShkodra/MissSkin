@@ -22,15 +22,15 @@
         <div class="img w-40">
             <img src="Fotot/LogIn-Foto.webp" alt="">
         </div>
-      <form action="" onsubmit="return validateForm()">
+      <form action="" onsubmit="return validateForm()"">
         <div class="input w-40">
             <h1>Create Account</h1>
-            <p><input type="text" id="fullname" placeholder="Full Name"></p>
-            <p><input type="text" id="username" placeholder="Username"></p>
-            <p><input type="email" id="email" placeholder="Email"></p>
-            <p><input type="password" id="password" placeholder="Password"></p>
+            <p><input type="text" id="fullname" placeholder="Full Name" required></p>
+            <p><input type="text" id="username" placeholder="Username" required></p>
+            <p><input type="email" id="email" placeholder="Email" required></p>
+            <p><input type="password" id="password" placeholder="Password" required></p>
             <p>Sign up for the latest MissSkin updates, special offers, and more. Unsubscribe at any time.</p>
-            <p><input type="submit" name="create_acc" value="CREATE ACCOUNT" class="register_button"></p>
+            <p><input type="submit" name="create_acc" value="CREATE ACCOUNT" class="register_button" ></p>
         </div>
       </form>
     </div>
@@ -75,32 +75,27 @@
         var email=document.getElementById('email').value
         var password=document.getElementById('password').value
 
-        var fullnameRegex=/^[a-zA-Z]+$/;
-        if(!nameRefex.test(fullname)){
+        var fullnameRegex = /^[a-zA-Z]+$/;
+        if(!nameRegex.test(fullname)){
             alert('Please enter a valid name.')
             return false;
 
         }
-        var usernameRegex=/^[a-zA-Z\s]+$/;
-        if(!usernameRefex.test(username)){
+        var usernameRegex = /^[a-zA-Z\s]+$/;
+        if(!usernameRegex.test(username)){
             alert('Please enter a valid username.')
             return false;
         }
-        var emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(!emailRefex.test(email)){
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRegexs.test(email)){
             alert('Please enter a valid email.')
             return false;
         }
        
-        if(password,length<8){
+        if(passwordlength<8){
             alert('psw must be at least 8 characters');
             return false;
         }
-
-
-
-
-        
 
 
       }
