@@ -22,7 +22,7 @@
         <div class="img w-40">
             <img src="Fotot/LogIn-Foto.webp" alt="">
         </div>
-      <form action="">
+      <form action="" onsubmit="return validateForm()">
         <div class="input w-40">
             <h1>Create Account</h1>
             <p><input type="text" id="fullname" placeholder="Full Name"></p>
@@ -68,6 +68,44 @@
         </div>
 
     </footer>
+    <script>
+      function validateForm(){
+        var fullname=document.getElementById('fullname').value
+        var username=document.getElementById('username').value
+        var email=document.getElementById('email').value
+        var password=document.getElementById('password').value
+
+        var fullnameRegex=/^[a-zA-Z]+$/;
+        if(!nameRefex.test(fullname)){
+            alert('Please enter a valid name.')
+            return false;
+
+        }
+        var usernameRegex=/^[a-zA-Z\s]+$/;
+        if(!usernameRefex.test(username)){
+            alert('Please enter a valid username.')
+            return false;
+        }
+        var emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRefex.test(email)){
+            alert('Please enter a valid email.')
+            return false;
+        }
+       
+        if(password,length<8){
+            alert('psw must be at least 8 characters');
+            return false;
+        }
+
+
+
+
+        
+
+
+      }
+
+    </script>
 
 
    
