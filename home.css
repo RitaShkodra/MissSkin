@@ -29,6 +29,11 @@ body{
 
 }
 
+.navicon{
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
 .nav a{
     color: white;
     text-decoration: none;
@@ -580,12 +585,37 @@ hr{
             font-size: 16px;
             flex-direction: column;
             align-items: flex-start;
+            
         }
-        .nav .LogIn{
-            margin-left: auto;
-            margin-top: 0px;
+        .nav a{
+            display: none;
+        }
+        .navicon{
+            display: block;
+        }
+        .nav.responsive{
+            position: sticky;
            
         }
+        .nav.responsive p{
+            flex-direction: column;
+        }
+        
+        .nav.responsive label{
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .nav.responsive a{
+            display: block;
+            text-align: left;
+            margin: unset;
+            color: white;
+            background-color: #ffb6d9;
+            width: 100px;
+
+        }
+   
         .img_mainbox{
             width: 100%;
         }
@@ -700,6 +730,7 @@ hr{
         margin-left: unset;
         text-align: left;
     }
+   
     }   
 
 

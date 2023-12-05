@@ -92,3 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Resume sliderin kur hiqet mausi
     slider.addEventListener("mouseout", startSlider);
 });
+    document.addEventListener('DOMContentLoaded',function(){
+        var navIcon = document.querySelector('.navicon');
+        var nav = document.querySelector('.nav');
+        navIcon.addEventListener('click', function(){
+            nav.classList.toggle('responsive');
+        })
+    })
