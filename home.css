@@ -784,6 +784,7 @@ hr{
         width: 400px;
         height: 450px;
         margin-left: 0px; 
+        
     }
     .bproduct img{
         width: 350px;
@@ -794,17 +795,6 @@ hr{
     }
     .bodyimages img{
         height: 400px;
-    }
-    .registerbox{
-        width: 100%;
-        flex-direction: row-reverse;
-        align-items: flex-start;
-    }
-    .input{
-        display: block;
-        width: 100%;
-        margin-left: unset;
-        text-align: left;
     }
    
     }   
@@ -829,18 +819,31 @@ hr{
         min-width: 100%;
         box-sizing: border-box;
     }
-    @media only screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
+    
         .nav {
             flex-direction: column;
-            align-items: center;
+            align-items: left;
         }
     
         .nav .MissSkin {
             margin-left: 0;
         }
     
-        .faqja, .registerbox {
+        .faqja, .registerbox{
             margin: 15px;
+            width: 100%;
+            flex-direction: row-reverse;
+            align-items: flex-start;
+            height: auto;
+        }
+        .faqja img{
+            width: 100%;
+            
+            
+        }
+        .registerbox img{
+            width: 100%;
         }
     
         .input, .inputr {
@@ -850,14 +853,22 @@ hr{
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: left;
+           
         }
     
         .input input, .inputr input {
             width: 100%;
+           
         }
+        
     
         .register_button, .login_button {
             width: 100%;
+            
         }
+       
+      
     }
+        
 
