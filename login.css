@@ -1,20 +1,21 @@
-@font-face{
+@font-face {
     font-family: myFont;
     src: url(Garet-Book.ttf);
 }
-*{
+
+* {
     font-family: myFont;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-.nav{
+.nav {
     display: flex;
     align-items: center;
     background-color: #ffb6d9;
@@ -24,120 +25,151 @@ body{
     font-size: 20px;
     z-index: 1000;
     position: sticky;
-    top: 0px; 
+    top: 0px;
     width: 100%;
-
 }
 
-.nav a{
+.nav a {
     color: white;
     text-decoration: none;
     margin: 0 10px;
 }
 
-.nav .LogIn{
+.nav .LogIn {
     margin-left: auto;
     margin-right: 15px;
 }
 
-.nav .MissSkin{
-    margin-left: 30%;
+.nav .MissSkin {
+    margin-left: auto;
 }
-.faqja{
+
+.faqja {
     width: 90%;
-    overflow: hidden;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 600px;
+    margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-  
-  }
-  .img img{
+}
+
+.img {
     width: 100%;
     box-sizing: border-box;
-    
 }
-  
-.w-40{
-  width: 40%;
-  box-sizing: border-box;
-}
-.input h1{
-  text-align: center;
-  margin-top: unset;
-  margin-bottom: 20px;
-}
-.input{
-  margin: 40px;
-  margin-left: 120px;
-  box-sizing: border-box;
 
-  
+.w-40 {
+    width: 100%;
+    box-sizing: border-box;
 }
-.input input{
-  width: 100%;
-  font-size: 16px;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid #ffb6d9;
-  text-align: center;
-  margin-bottom: 20px;
- 
+
+.input h1 {
+    text-align: center;
+    margin-top: unset;
+    margin-bottom: 20px;
 }
+
+.input {
+    margin: 40px auto;
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 600px;
+}
+
+.input input {
+    width: calc(50% - 15px);
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ffb6d9;
+    text-align: center;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.input input:last-child {
+    margin-left: 30px;
+}
+
 .signup_link {
     text-align: center;
-    
-}
-.signup_link a{
-    color: #d94496;
-}
-.login_button{
-  background-color: #d94496;
-  color: white;
-  
 }
 
-.footer{
+.signup_link a {
+    color: #d94496;
+}
+
+.login_button {
+    background-color: #d94496;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.footer {
     display: flex;
     flex-wrap: wrap;
     background-color: #ffb6d9;
     color: white;
-    height: 350px;
-    margin-right: 0px;
-    padding-top: 10px;
+    padding: 10px;
     width: 100%;
 }
-.minifooter{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 20px;
-    width: 22.1%;
-    padding: 2px;
+
+.minifooter {
+    flex: 1;
+    margin: 0 10px;
 }
-.minifooter p{
+
+.minifooter p {
     margin-bottom: 3px;
 }
 
- .minifooter #footerTitle{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+.minifooter #footerTitle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.minifooter a img{
+.minifooter a img {
     width: 30px;
     height: 30px;
-    
 }
-.minifooter #icon{
+
+.minifooter #icon {
     text-align: center;
 }
- 
+
+
+
+@media only screen and (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav .MissSkin {
+        margin-left: 0;
+    }
+
+    .faqja {
+        margin: 15px;
+    }
+
+    .input input {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .input input:last-child {
+        margin-left: 0;
+    }
+
+    .login_button {
+        width: 100%;
+    }
+}

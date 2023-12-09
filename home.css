@@ -829,4 +829,35 @@ hr{
         min-width: 100%;
         box-sizing: border-box;
     }
+    @media only screen and (max-width: 768px) {
+        .nav {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .nav .MissSkin {
+            margin-left: 0;
+        }
+    
+        .faqja, .registerbox {
+            margin: 15px;
+        }
+    
+        .input, .inputr {
+            width: 90%;
+            max-width: none;
+            margin: 15px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .input input, .inputr input {
+            width: 100%;
+        }
+    
+        .register_button, .login_button {
+            width: 100%;
+        }
+    }
 
