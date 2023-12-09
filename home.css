@@ -340,6 +340,7 @@ body{
     /* flex-wrap: wrap; */
     flex-direction: row;
     box-sizing: border-box;
+    margin-top: 40px;
  
 }
 .serumfoto{
@@ -587,9 +588,12 @@ hr{
     height: 600px;
 }
 .hair h1{
-    text-align: center;
+    margin-top: 20px;
     font-size: 30px;
+    text-align: center;
     padding: 30px;
+
+    
     }
     .produktet{
         display: flex;
