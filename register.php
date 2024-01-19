@@ -4,7 +4,7 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
     header("location: home.php");
     exit;
 }
-include 'user/registerLogic.php';
+include 'RegisterLogic.php';
 
 ?>
 
@@ -19,7 +19,6 @@ include 'user/registerLogic.php';
     <link rel="stylesheet" href="home.css">
 </head>
 <?php 
-include "header.php"; 
 $emptyErr = $emailValidErr = $emailExistsErr = $usernameValidErr =$UsernameExistsErr = $passwordValid=$success=$email=$username="";
 
 if (isset($_POST['register-btn'])) {
