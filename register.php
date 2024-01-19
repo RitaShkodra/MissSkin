@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+    header("location: home.php");
+    exit;
+}
+include 'user/registerLogic.php';
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,12 +18,50 @@
     <title>Document</title>
     <link rel="stylesheet" href="home.css">
 </head>
-<?php
-    
+<?php 
+include "header.php"; 
+$emptyErr = $emailValidErr = $emailExistsErr = $usernameValidErr =$UsernameExistsErr = $passwordValid=$success=$email=$username="";
 
+if (isset($_POST['register-btn'])) {
+    $register = new RegisterLogic($_POST);
+    $fullname=$register->getFullname();
+    $username=$register->getUsername();
+    $email=$register->getEmail();
+    $EmptyFields=$register->emptyFields();
+    $EmailisValid = $register->validateEmail();
+    $UsernameisValid = $register->validateUsername();
+    $PasswordisValid = $register->validatePassword();
+    $EmailExists=$register->emailExists();
+    $UsernameExists=$register->usernameExists();
+    if(!$EmptyFields && $EmailisValid && $UsernameisValid && $PasswordisValid && !$EmailExists && !$UsernameExists){
+        $register->insertData();
+        $success = "Jeni regjistruar me sukses!";
+  
+        header("location:login.php");
+    } else if($EmptyFields){
+        $emptyErr = "Ju lutem plotesoni te gjitha fushat!";
+        
+    }
+    else if(!$EmailisValid){
+        $emailValidErr = "Email është jovalid!";
+   
+}
+else if($EmailExists){
+    $emailExistsErr = "Ky email ekziston!";
 
-
-
+}
+else if($UsernameExists){
+    $UsernameExistsErr = "Username ekziston!";
+ 
+}
+else if(!$UsernameisValid){
+    $usernameValidErr = "Username nuk mund të përmbajë hapësira as karaktere speciale!";
+   
+}else if(!$PasswordisValid){
+    $passwordValid= "Password duhet të ketë së paku 8 karaktere dhe të përmbajë shkronja të vogla, të mëdha, numra dhe karaktere speciale!";
+  
+}
+}
 
 ?>
 
@@ -29,11 +77,18 @@
 
         </p>
     </div>
+    <div class="errors">
+    <span><?php echo $emailValidErr;?></span>
+    <span> <?php echo $emailExistsErr;?></span>
+    <span> <?php echo $usernameValidErr;?></span>
+    <span><?php echo $UsernameExistsErr;?></span>
+    <span> <?php echo $passwordValid;?></span>
+    </div>
     <div class="registerbox">
         <div class="img w-40">
             <img src="Fotot/LogIn-Foto.webp" alt="">
         </div>
-        <form action="" onsubmit="return validateRegister()">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" onsubmit="return validateRegister()">
             <div class="inputr w-40">
                 <h1>Create Account</h1>
                 <p><input type="text" id="fullname" placeholder="Full Name" required></p>
