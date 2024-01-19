@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<?php
+    
+
+
+
+
+
+?>
+
+<body>
+    <div class="nav">
+        <p>
+        <div class="navicon">&#9776;</div>
+        <a href="home.html"> <label for="">Home</label></a>
+        <a href="face.html"><label for="">Face</label></a>
+        <a href="hairbody.html"> <label for="">Hair-Body</label></a>
+        <a href="home.html" class="MissSkin"><label for="">MissSkin</label></a>
+        <a href="login.html" class="LogIn active"> <label for="">Log In</label></a>
+
+        </p>
+    </div>
+    <div class="registerbox">
+        <div class="img w-40">
+            <img src="Fotot/LogIn-Foto.webp" alt="">
+        </div>
+        <form action="" onsubmit="return validateRegister()">
+            <div class="inputr w-40">
+                <h1>Create Account</h1>
+                <p><input type="text" id="fullname" placeholder="Full Name" required></p>
+                <p><input type="text" id="username" placeholder="Username" required></p>
+                <p><input type="email" id="email" placeholder="Email" required></p>
+                <p><input type="password" id="password" placeholder="Password" required></p>
+                <p>Sign up for the latest MissSkin updates, special offers, and more. Unsubscribe at any time.</p>
+                <p><input type="submit" name="create_acc" value="CREATE ACCOUNT" class="register_button"></p>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="minifooter">
+                <h1 id="footerTitle">MissSkin</h1>
+                <p id="icon"><a href="https://www.facebook.com/" target="_blank"><img src="Fotot/facebook.png"
+                            alt=""></a>
+                    <a href="https://www.Instagram.com" target="_blank"><img src="Fotot/instagram.png" alt=""></a>
+                    <a href="https://www.tiktok.com" target="_blank"><img src="Fotot/tik-tok.png" alt=""></a>
+                    <a href="https://www.youtube.com" target="_blank"><img src="Fotot/youtube.png" alt=""></a>
+                </p>
+            </div>
+            <div class="minifooter">
+                <h2>LEGAL</h2>
+                <p>Terms and Conditions</p>
+                <p>Cookie Policy</p>
+                <p>Returns Policy</p>
+                <p>Refunds Policy</p>
+            </div>
+            <div class="minifooter">
+                <h2>CUSTOMER SERVICE</h2>
+                <p>Contact Us</p>
+                <p>Shipping & Returns</p>
+                <p>Popular FAQs</p>
+                <p>Find My Order</p>
+            </div>
+            <div class="minifooter">
+                <h2>OUR PRODUCTS</h2>
+                <p>Skincare Solution Finder</p>
+                <p>Why MissSkin</p>
+                <p>Where To Buy</p>
+                <p>MissSkin.com</p>
+            </div>
+        </div>
+
+    </footer>
+    <script src="missskin.js"></script>
+
+
+
+</body>
+
+</html>
