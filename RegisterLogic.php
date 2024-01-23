@@ -45,7 +45,7 @@ class RegisterLogic
     }
 
     public function validateEmail(){
-       $emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+       $emailRegex = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
         
         if(preg_match($emailRegex, $this->email)){
             return true;
@@ -54,7 +54,7 @@ class RegisterLogic
         }
     }
     public function validateUsername(){
-        $usernameRegex = /^[a-zA-Z]+$/;
+        $usernameRegex = '/^[a-zA-Z]+$/';
         
         if(preg_match($usernameRegex, $this->username)){
             return true;
@@ -63,7 +63,7 @@ class RegisterLogic
         }
     }
     public function validatePassword(){
-        $passwordRegex = "/^.{8,}$/";
+        $passwordRegex = '/^.{8,}$/'; //kqyr a mi hek thojzat
         
         if(preg_match($passwordRegex, $this->password)){
             return true;

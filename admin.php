@@ -6,7 +6,8 @@ class Admin extends Person
 {
     public function __construct($id, $fullname,$email, $username,  $password, $role)
     {
-        parent::__construct($id, $fullname,$email, $username,  $password, $role); 
+        parent::__construct($id, $fullname, $email, $username, $password, $role);
+
     }
 
 
@@ -34,7 +35,7 @@ class Admin extends Person
     }
     public function setFullname($fullname)
 {
-    $this->username = $fullname;
+    $this->fullname = $fullname;
 }
 
     public function getUsername()
@@ -44,6 +45,7 @@ class Admin extends Person
     public function setUsername($username)
 {
     $this->username = $username;
+    
 }
     public function getPassword()
     {
