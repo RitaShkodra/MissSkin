@@ -47,7 +47,8 @@ session_start();
                  } ?>
 
     </div>
-
+ 
+  
      <div class="beauty">
         <br>
         <h1>Community of Beauty Enthusiasts</h1>
@@ -74,127 +75,64 @@ session_start();
      </div>
      <hr>
      <br>
+     <div class="products">
+        <?php
+            // Funksioni per shfaqjen e produkteve
+            function displayProduct($imgSrc, $title, $price, $description) {
+                echo '<div class="product">';
+                echo '<img src="' . $imgSrc . '" alt="">';
+                echo '<h1>' . $title . '</h1>';
+                echo '<p>€' . $price . '</p>';
+                echo '<label for="">' . $description . '</label>';
+                echo '</div>';
+            }
+?>
+ </div>
      <div class="bodycream">
         <h1>BODY CREAM </h1>
         </div>
         <hr>
-     <div class="bodyC">
-        <div class="bodyfoto">
-            <img src="Fotot/bodyFoto.webp" alt="">
+        <div class="bodyC">
+        
+        <?php
+        displayProduct("Fotot/body1.webp", "Body Cream Pigmentation Glow", "16.99", "Reduces Hyperpigmentation and pimples");
+        displayProduct("Fotot/body2.webp", "Body Cream 12% Niacinamide", "19.70", "Evens out Rough Texture | Energizes Skin");
+        displayProduct("Fotot/body3.webp", "Body Cream with Vitamin C", "12.55", "Reduces Pigmentation | Vitamin C");
+        displayProduct("Fotot/body4.webp", "Body Cream and Extra Glow", "22.50", "Prevents Breakouts & Whiteheads");
+        
+        ?>
     </div>
-        <div class="body_products">
-            <div class="body_row">
-            <div class="body_product">
-                <img src="Fotot/body1.webp" alt="">
-                <h1>Body Cream Pigmentation Glow</h1>
-                <p>€16.99</p>
-                <label for="">  Reduces Hyperpigmentation and pimples  </label>
-                </div> 
-             
-                <div class="body_product">
-                    <img src="Fotot/body2.webp" alt="">
-                    <h1>Body Cream 12% Niacinamide   </h1>
-                    <p>€19.70</p>
-                    <label for="">Evens out Rough Texture|Energizes Skin </label>
-                </div>
-            </div>
-            <div class="body_row">
-                <div class="body_product">
-                    <img src="Fotot/body3.webp" alt="">
-                    <h1>Body Cream with Vitamin C </h1>
-                    <p>€12.55</p>
-                    <label for="">Reduces Pigmentation | Vitamin C</label>
-                </div>
-                <div class="body_product">
-                    <img src="Fotot/body4.webp" alt="">
-                    <h1>Body Cream and Extra Glow </h1>
-                    <p>€22.50</p>
-                    <label for="">Prevents Breakouts & Whiteheads </label>
-                </div>
-        </div>
-        </div>
-            
-    </div>
-    <div class="bproducts">  
-        <div class="bproduct">
-       <img src="Fotot/bathbomb1.webp" alt="">
-       <h1>Celestial Serenity Bath Bomb With Citrus Essential Oils</h1> 
-       <p>€6.99</p>
-       <label for="">Pampers Skin| LightWeight & Refreshing</label>
-       </div>
-   <div class="bproduct">
-       <img src="Fotot/bodyLoofa1.webp" alt="">
-       <h1>Lustrous Luxe Velvet-Touch Exfoliating Glove</h1>
-       <p>€4.75</p>
-       <label for="">Exfoliating Ingredients | Gentle Cleansing  </label>
-       </div>
-   <div class="bproduct">
-       <img src="Fotot/BodyScrub1.webp" alt="">
-       <h1>Velvet Glow Renewal Elixir Exfoliating Body Scrub</h1>
-       <p>€10.99</p>
-       <label for=""> Exfoliate Skin| Nourish |Renew & Hydrate </label>
-       </div> 
-    
-       <div class="bproduct">
-           <img src="Fotot/BodySpray1.webp" alt="">
-           <h1>Enchanting Orchid Bloom Hydrating Mist </h1>
-           <p>€12.50</p>
-           <label for="">Energizing Botanical Extracts | Moisturize </label>
-       </div>
-       </div>
-       <div class="bodyimages">
-            <img src="Fotot/bathFoto.webp" alt="">
-            <img src="Fotot/bathFoto2.webp" alt="">
-       </div>
 
-       <hr>
-       <div class="hair">
+    <div class="bproducts">
+      
+        <?php
+        displayProduct("Fotot/bathbomb1.webp", "Celestial Serenity Bath Bomb", "6.99", "Pampers Skin | Lightweight & Refreshing");
+        displayProduct("Fotot/bodyLoofa1.webp", "Lustrous Luxe Velvet-Touch Exfoliating Glove", "4.75", "Exfoliating Ingredients | Gentle Cleansing");
+        displayProduct("Fotot/BodyScrub1.webp", "Velvet Glow Renewal Elixir Exfoliating Body Scrub", "10.99", "Exfoliate Skin | Nourish | Renew & Hydrate");
+        displayProduct("Fotot/BodySpray1.webp", "Enchanting Orchid Bloom Hydrating Mist", "12.50", "Energizing Botanical Extracts | Moisturize");
+        
+        ?>
+    </div>
+
+    <hr>
+
+    <div class="hair">
         <h1>HAIR PRODUCTS</h1>
-       </div>
-       <hr>
+    </div>
+    <hr>
+
+    <div class="produktet">
        
-
-       <div class="produktet">  
-        <div class="produkt">
-       <img src="Fotot/HairMask1.webp" alt="">
-       <h1>Strawberry Hair Mask with Natural Ingredients and  Protection</h1> 
-       <p>€8.50</p>
-       <label for="">Relaxation and Self-Care | Adding Volume |Reducing Frizz </label>
-       </div>
-    <div class="produkt">
-       <img src="Fotot/HairMask2.webp" alt="">
-       <h1>Dark Berry Hair Mask with Natural Ingredients and  Protection</h1>
-       <p>€8.50</p>
-       <label for="">Relaxation and Self-Care | Adding Volume |Reducing Frizz </label>
-       </div>
-    <div class="produkt">
-       <img src="Fotot/HairMask3.webp" alt="">
-       <h1>Banana Hair Mask with Natural Ingredients and  Protection</h1>
-       <p>€10.99</p>
-       <label for="">Relaxation and Self-Care | Adding Volume |Reducing Frizz </label>
-       </div> 
-
-       <div class="HairFoto"><img src="Fotot/FotoHair e madhe.webp" alt=""></div>
-
-       <div class="produkt">
-           <img src="Fotot/hairproduct-4.png" alt="">
-           <h1>Orange Hair Mask with Natural Ingredients & Protection  </h1>
-           <p>€10.99</p>
-           <label for="">Relaxation and Self-Care | Adding Volume |Reducing Frizz</label>
-       </div>
-       <div class="produkt">
-           <img src="Fotot/hairWasher1.png" alt="">
-           <h1>MissSkin Hair Shampoo that Prevent Hair Damage</h1>
-           <p>€14.00</p>
-           <label for="">Optimal pH Balance| Reduces Hyperpigmentation| All Skin </label>
-       </div>
-       <div class="produkt">
-           <img src="Fotot/HairProduct6.png" alt="">
-           <h1>MissSkin Hair Oil with Nourishment and Nutrients  </h1>
-           <p>€11.20</p>
-           <label for="">Improved Scalp Health | Prevention of Hair Loss | Shine </label>
-       </div>
-      </div>
+        <?php
+        displayProduct("Fotot/HairMask1.webp", "Strawberry Hair Mask", "8.50", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
+        displayProduct("Fotot/HairMask2.webp", "Dark Berry Hair Mask", "8.50", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
+        displayProduct("Fotot/HairMask3.webp", "Banana Hair Mask", "10.99", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
+        displayProduct("Fotot/hairproduct-4.png", "Orange Hair Mask", "10.99", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
+        displayProduct("Fotot/hairWasher1.png", "MissSkin Hair Shampoo", "14.00", "Optimal pH Balance | Reduces Hyperpigmentation | All Skin");
+        displayProduct("Fotot/HairProduct6.png", "MissSkin Hair Oil", "11.20", "Improved Scalp Health | Prevention of Hair Loss | Shine");
+        
+        ?>
+    </div>
 
 
 
