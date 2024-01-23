@@ -1,3 +1,12 @@
+<?php
+include_once 'admin.php';
+include_once 'simpleUser.php';
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +26,20 @@
             <a href="home.html" class="MissSkin"><label for="">MissSkin</label></a>
            <a href="login.html" class="LogIn"> <label for="" >Log In</label></a>
         </p>
+        <?php 
+                
+                if (isset($_SESSION['loggedin'])) { 
+                    
+                    echo '<li><a href="Logout.php" class="nav">Log Out</a></li>';
+                    
+                    if ($_SESSION['role'] == 1) { 
+                      
+                        echo '<li><a href="dashboard.php" class="nav">Dashboard</a></li>';
+                    }
+                } else { 
+          
+                   echo ' <li><a href="login.php" class="nav">Login</a></li>';
+                 } ?>
     </div>
 
     <div id="slideshow">

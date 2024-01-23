@@ -1,0 +1,226 @@
+<?php
+include_once 'admin.php';
+include_once 'simpleUser.php';
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+<?php 
+    session_start();
+    include "ProdController.php"; 
+?>
+    <div class="nav">
+
+        <p>
+            <div class="navicon">&#9776;</div>
+           <a href="home.html"> <label for="">Home</label></a>
+            <a href="face.html" class="active"><label for="">Face</label></a>
+           <a href="hairbody.html"> <label for="">Hair-Body</label></a>   
+            <a href="home.html" class="MissSkin"><label for="">MissSkin</label></a>
+           <a href="login.html" class="LogIn"> <label for="" >Log In</label></a>
+           
+        </p>
+        <?php 
+                
+                if (isset($_SESSION['loggedin'])) { 
+                    
+                    echo '<li><a href="Logout.php" class="nav">Log Out</a></li>';
+                    
+                    if ($_SESSION['role'] == 1) { 
+                      
+                        echo '<li><a href="dashboard.php" class="nav">Dashboard</a></li>';
+                    }
+                } else { 
+          
+                   echo ' <li><a href="login.php" class="nav">Login</a></li>';
+                 } ?>
+    </div>
+    <div class="oferta-face"><img src="Fotot/slider3.png" alt=""></div>
+
+   <div class="products">  
+     <div class="product">
+    <img src="Fotot/Oferta1f1.webp" alt="">
+    <h1>Waterlight Gel Moisturizer 72 Hour Hydration 50 ml</h1> 
+    <p>€8.50</p>
+    <label for="">Instantly Hydrates Skin | LightWeight & Non-Sticky</label>
+    </div>
+<div class="product">
+    <img src="Fotot/Oferta1f2.webp" alt="">
+    <h1>Clearing & Calming Acne Face Wash 72 Hour Hydration 100 ml</h1>
+    <p>€6.25</p>
+    <label for="">Speeds Up Healing Of Acne | Gentle Cleansing | Acne </label>
+    </div>
+<div class="product">
+    <img src="Fotot/Oferta1f3.webp" alt="">
+    <h1>Acne Care & Healing Gel Moisturiser With Tea Tree</h1>
+    <p>€6.99</p>
+    <label for=""> Healing Of Acne | Gently Hydrates |Treats & Prevents </label>
+    </div> 
+ 
+    <div class="product">
+        <img src="Fotot/Oferta1f4.webp" alt="">
+        <h1>Overnight Acne Spot Corrector,Fast-Acting Spot Treatment: & Cica 50 ml </h1>
+        <p>€9.70</p>
+        <label for="">Reduces & Shrinks | Works on Active Acne, Blackheads</label>
+    </div>
+    <div class="product">
+        <img src="Fotot/Oferta1f5.webp" alt="">
+        <h1>Dark Spot & Hyperpigmentation Correcting Power Serum</h1>
+        <p>€12.00</p>
+        <label for="">Fades Dark Spots | Reduces Hyperpigmentation</label>
+    </div>
+    <div class="product">
+        <img src="Fotot/Oferta1f6.webp" alt="">
+        <h1>Super Clarifying 12% Niacinamide Face Serum for All Skin Types</h1>
+        <p>€11.50</p>
+        <label for="">Controls Oil | Refines Pores | Evens out Rough Texture</label>
+    </div>
+   </div>
+   <hr>
+    <div class="faceserum">
+    <h1>FACE SERUMS </h1>
+    </div>
+    <hr>
+
+   <div class="serums">
+    <div class="serumfoto">
+        <img src="Fotot/fotoSerum.jpg" alt="">
+</div>
+    <div class="serum_products">
+        <div class="serum_row">
+        <div class="serum_product">
+            <img src="Fotot/Serum1.webp" alt="">
+            <h1>Dark Spot & Hyperpigmentation Correcting Power Serum</h1>
+            <p>€16.99</p>
+            <label for=""> Fades Dark Spots | Reduces Hyperpigmentation </label>
+            </div> 
+         
+            <div class="serum_product">
+                <img src="Fotot/Serum2.webp" alt="">
+                <h1>Super Clarifying 12% Niacinamide Face Serum for All  </h1>
+                <p>€19.70</p>
+                <label for="">Controls Oil | Refines Pores | Evens out Rough Texture </label>
+            </div>
+        </div>
+        <div class="serum_row">
+            <div class="serum_product">
+                <img src="Fotot/Serum3.webp" alt="">
+                <h1>Vitamin C Antioxidant Radiance Serum 30 ml</h1>
+                <p>€12.55</p>
+                <label for="">Reduces Pigmentation | Energizes Skin</label>
+            </div>
+            <div class="serum_product">
+                <img src="Fotot/Serum4.webp" alt="">
+                <h1>Anti Acne Serum 30 ml + Pigmentation Relief Duo</h1>
+                <p>€22.50</p>
+                <label for="">Prevents Breakouts & Whiteheads </label>
+            </div>
+    </div>
+    </div>
+        
+</div>
+</div>
+<div class="sociallinks">
+    <hr>
+    <h1> SOCIAL LINKS</h1>
+    <p>Join us on social media <a href="www.facebook.com"><img src="Fotot/facebook.png" alt=""></a>
+        <a href="www.instagram.com"><img src="Fotot/instagram.png" alt=""></a>
+        <a href="www.youtube.com"><img src="Fotot/youtube.png" alt=""></a>
+        <a href="register.html"><button>Sign up for our exclusive offers ></button></a>
+    </p>
+    <hr>
+
+
+</div>
+<div class="products">  
+    <div class="product">
+   <img src="Fotot/Acne1.webp" alt="">
+   <h1>Overnight Acne Spot Corrector 72 Hour Hydration 30 ml</h1> 
+   <p>€18.50</p>
+   <label for="">Reduces & Shrinks Acne | Works on active Blackheads </label>
+   </div>
+<div class="product">
+   <img src="Fotot/Mask1.webp" alt="">
+   <h1>Overnight Exfoliating AHA BHA Radiance Mask 72 Hour Hydration 100 ml</h1>
+   <p>€6.25</p>
+   <label for="">Double Exfoliates | Reduces Pigmentation | Evens Out Skin </label>
+   </div>
+<div class="product">
+   <img src="Fotot/Moisturiser1.webp" alt="">
+   <h1>Daily Moisturiser With Blue Light Protection and Reduces Pigmentation</h1>
+   <p>€16.99</p>
+   <label for=""> Hydrates Skin | Improves Dullness | All Skin types </label>
+   </div> 
+
+   <div class="product">
+       <img src="Fotot/Toner1.webp" alt="">
+       <h1>Hydrating Toner and Overnight Acne Spot Corrector 100 ml  </h1>
+       <p>€9.70</p>
+       <label for="">Reduces & Shrinks | Works on Active Acne, Blackheads</label>
+   </div>
+   <div class="product">
+       <img src="Fotot/Oil1.webp" alt="">
+       <h1>Oil Free Matte Moisturiser with Blue Light Protection 30ml</h1>
+       <p>€14.00</p>
+       <label for="">Fades Dark Spots | Reduces Hyperpigmentation| All Skin </label>
+   </div>
+   <div class="product">
+       <img src="Fotot/Sunscreen.webp" alt="">
+       <h1>Mineral Matte Tinted Sunscreen for All Skin Types 50 g </h1>
+       <p>€11.20</p>
+       <label for="">Shields skin from Broad Spectrum UVA and UVB rays </label>
+   </div>
+  </div>
+<footer>
+    <div class="footer">
+        <div class="minifooter">
+            <h1 id="footerTitle">MissSkin</h1>
+            <p id="icon"><a href="https://www.facebook.com/" target="_blank"><img src="Fotot/facebook.png" alt=""></a>
+                <a href="https://www.Instagram.com" target="_blank" ><img src="Fotot/instagram.png" alt=""></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="Fotot/tik-tok.png" alt=""></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="Fotot/youtube.png" alt=""></a>
+            </p>
+        </div>
+        <div class="minifooter">
+            <h2>LEGAL</h2>
+           <p>Terms and Conditions</p>
+           <p>Cookie Policy</p>
+           <p>Returns Policy</p>
+           <p>Refunds Policy</p>
+        </div>
+        <div class="minifooter">
+            <h2>CUSTOMER SERVICE</h2>
+           <p>Contact Us</p>
+           <p>Shipping & Returns</p>
+           <p>Popular FAQs</p>
+           <p>Find My Order</p>
+        </div>
+        <div class="minifooter">
+            <h2>OUR PRODUCTS</h2>
+           <p>Skincare Solution Finder</p>
+           <p>Why MissSkin</p>
+           <p>Where To Buy</p>
+           <p>MissSkin.com</p>
+        </div>
+    </div>
+
+</footer>         
+</div>
+</div>
+
+<script src="missskin.js"></script>
+  
+  
+
+
+</body>
+</html>
