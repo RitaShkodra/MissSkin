@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+   
+</head>
+<body>
+    <div class="nav">
+        <p>
+            <div class="navicon">&#9776;</div>
+           <a href="home.html" class="active"> <label for="">Home</label></a>
+            <a href="face.html"><label for="">Face</label></a>
+           <a href="hairbody.html"> <label for="">Hair-Body</label></a>   
+            <a href="home.html" class="MissSkin"><label for="">MissSkin</label></a>
+           <a href="login.html" class="LogIn"> <label for="" >Log In</label></a>
+        </p>
+    </div>
+
+    <div id="slideshow">
+        <div id="slider">
+            <div class="slide"><img src="Fotot/slider1.png" alt="Slide 1"></div>
+            <div class="slide"><img src="Fotot/slider2.png" alt="Slide 2"></div>
+            <div class="slide"><img src="Fotot/slider3.png" alt="Slide 3"></div>
+            <div class="slide"><img src="Fotot/slider4.png" alt="Slide 4"></div>
+        </div>
+    </div>
+    <?php
+    require_once 'homeController.php';
+
+    $controller = new homeController();
+    $products = $controller->readData();
+    ?>
+    
+        <div class="img_mainbox">
+            <div class="imgbox">
+                <a href="face.html"><img src="Fotot/fotoFtyra.jpg" alt=""></a>
+                <label for="">· FACE ·</label>
+            </div>
+            <div class="imgbox">
+                <a href="hairbody.html"><img src="Fotot/hairfoto1.jpeg" alt=""></a>
+                <label for="">· HAIR ·</label>
+            </div>
+            <div class="imgbox">
+                <a href="face.html"><img src="Fotot/fotoSkin2.jpg" alt=""></a>
+                <label for="">· FACE ·</label>
+            </div>
+            <div class="imgbox">
+                <a href="hairbody.html"><img src="Fotot/fotobody3.png" alt=""></a>
+                <label for="">· BODY ·</label>
+            </div>
+            <div class="quote">
+                <p>For the queens who understand that caring for their skin is a gentle act of love.Welcome to MissSkin, where your glow is our priority.</p>
+            </div>
+        </div>
+        <div class="oferta"><a href="face.html" ><img src="Fotot/slider3.png" alt=""></a></div>
+
+        <div class="blog"><label for="">· BLOG · </label></div>
+
+        <div class="blog_mainbox">
+            <div class="leftbox">
+                <img src="Fotot/fotoBllog1.webp" alt="">
+            </div>
+            <div class="blogtext">
+                <h1>How to layer skincare products </h1>
+                <label for="">
+                    Layering skincare products in the correct order is essential to maximize their effectiveness
+                     and ensure they work together harmoniously.
+                     </label>
+                    
+                    </div>
+        </div>
+        <div class="blog_mainbox">
+            <div class="leftbox">
+                <img src="Fotot/fotoBllog2.webp" alt="">
+            </div>
+            <div class="blogtext">
+                <h1>Relaxation and Self-Care</h1>
+                <label for="">Applying a face mask can be a relaxing and enjoyable part of a skincare routine.
+                     It provides an opportunity for self-care and can be a calming ritual, helping to reduce stress.</label></div>
+       
+                    </div>
+        <div class="blog_mainbox">
+            <div class="leftbox">
+                <img src="Fotot/fotoBllog3.jpeg" alt="">
+            </div>
+            <div class="blogtext">
+                <h1>Products</h1>
+                <label for="">
+                      High-quality skincare products are formulated with ingredients that support overall skin health.
+                     They provide essential nutrients, antioxidants, and hydration, contributing to the skin's well-being.</label>
+                    
+                    </div>
+        </div>
+
+    <footer>
+        <div class="footer">
+            <div class="minifooter">
+                <h1 id="footerTitle">MissSkin</h1>
+                <p id="icon"><a href="https://www.facebook.com/" target="_blank"><img src="Fotot/facebook.png" alt=""></a>
+                    <a href="https://www.Instagram.com" target="_blank" ><img src="Fotot/instagram.png" alt=""></a>
+                    <a href="https://www.tiktok.com" target="_blank"><img src="Fotot/tik-tok.png" alt=""></a>
+                    <a href="https://www.youtube.com" target="_blank"><img src="Fotot/youtube.png" alt=""></a>
+                </p>
+            </div>
+            <div class="minifooter">
+                <h2>LEGAL</h2>
+               <p>Terms and Conditions</p>
+               <p>Cookie Policy</p>
+               <p>Returns Policy</p>
+               <p>Refunds Policy</p>
+            </div>
+            <div class="minifooter">
+                <h2>CUSTOMER SERVICE</h2>
+               <p>Contact Us</p>
+               <p>Shipping & Returns</p>
+               <p>Popular FAQs</p>
+               <p>Find My Order</p>
+            </div>
+            <div class="minifooter">
+                <h2>OUR PRODUCTS</h2>
+               <p>Skincare Solution Finder</p>
+               <p>Why MissSkin</p>
+               <p>Where To Buy</p>
+               <p>MissSkin.com</p>
+            </div>
+        </div>
+
+    </footer>
+    <script src="missskin.js"></script>
+
+
+    <!-- <?php 
+            $counter = 0;
+            foreach ($products as $product):
+            if($counter == 4) break;
+                    ?>
+        <div class="divs">
+            <a href="products.php">
+                <img src="<?php echo $product['home_image']; ?>" class="r">
+                <p class="tekstet"><?php echo $product['home_emri']; ?></p>
+            </a>
+        </div>
+        <?php 
+            $counter++;
+            endforeach; 
+        ?> -->
+    
+</body>
+</html>
