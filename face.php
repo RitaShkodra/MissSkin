@@ -83,21 +83,29 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="serum_products">
             <div class="serum_row">
                 <?php
-                    displayProduct("Fotot/Serum1.webp", "Dark Spot & Hyperpigmentation Correcting Power Serum", "16.99", "Fades Dark Spots | Reduces Hyperpigmentation");
-                    displayProduct("Fotot/Serum2.webp", "Super Clarifying 12% Niacinamide Face Serum for All", "19.70", "Controls Oil | Refines Pores | Evens out Rough Texture");
+                function displaySerum($imgSrc, $title, $price, $description) {
+                    echo '<div class="serum_product">';
+                    echo '<img src="' . $imgSrc . '" alt="">';
+                    echo '<h1>' . $title . '</h1>';
+                    echo '<p>€' . $price . '</p>';
+                    echo '<label for="">' . $description . '</label>';
+                    echo '</div>';
+                }
+                displaySerum("Fotot/Serum1.webp", "Dark Spot & Hyperpigmentation Correcting Power Serum", "16.99", "Fades Dark Spots | Reduces Hyperpigmentation");
+                displaySerum("Fotot/Serum2.webp", "Super Clarifying 12% Niacinamide Face Serum for All", "19.70", "Controls Oil | Refines Pores | Evens out Rough Texture");
                 ?>
             </div>
 
             <div class="serum_row">
                 <?php
-                    displayProduct("Fotot/Serum3.webp", "Vitamin C Antioxidant Radiance Serum 30 ml", "12.55", "Reduces Pigmentation | Energizes Skin");
-                    displayProduct("Fotot/Serum4.webp", "Anti Acne Serum 30 ml + Pigmentation Relief Duo", "22.50", "Prevents Breakouts & Whiteheads");
+                    displaySerum("Fotot/Serum3.webp", "Vitamin C Antioxidant Radiance Serum 30 ml", "12.55", "Reduces Pigmentation | Energizes Skin");
+                    displaySerum("Fotot/Serum4.webp", "Anti Acne Serum 30 ml + Pigmentation Relief Duo", "22.50", "Prevents Breakouts & Whiteheads");
                 ?>
             </div>
         </div>
     </div>
 
-    <!-- Këtu mund të vazhdohet me seksionet e tjera të produkteve (nëse ka) -->
+    
 
     <div class="sociallinks">
         <hr>

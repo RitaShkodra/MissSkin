@@ -63,5 +63,37 @@ class ProdController
 
         return header('Location: dashboard.php');
     }
+    function displayBodyC($imgSrc, $title, $price, $description) {
+        echo '<div class="body_product">';
+        echo '<img src="' . $imgSrc . '" alt="">';
+        echo '<h1>' . $title . '</h1>';
+        echo '<p>€' . $price . '</p>';
+        echo '<label for="">' . $description . '</label>';
+        echo '</div>';
+    }
+    function displayBody($imgSrc, $title, $price, $description) {
+        echo '<div class="bproduct">';
+        echo '<img src="' . $imgSrc . '" alt="">';
+        echo '<h1>' . $title . '</h1>';
+        echo '<p>€' . $price . '</p>';
+        echo '<label for="">' . $description . '</label>';
+        echo '</div>';
+    }
+    function displayProduct($imgSrc, $title, $price, $description) {
+        echo '<div class="product">';
+        echo '<img src="' . $imgSrc . '" alt="">';
+        echo '<h1>' . $title . '</h1>';
+        echo '<p>€' . $price . '</p>';
+        echo '<label for="">' . $description . '</label>';
+        echo '</div>';
+    }
+    function displaySerum($imgSrc, $title, $price, $description) {
+        echo '<div class="serum_product">';
+        echo '<img src="' . $imgSrc . '" alt="">';
+        echo '<h1>' . $title . '</h1>';
+        echo '<p>€' . $price . '</p>';
+        echo '<label for="">' . $description . '</label>';
+        echo '</div>';
+    }
 }
 ?>

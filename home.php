@@ -53,6 +53,14 @@ if (session_status() == PHP_SESSION_NONE) {
 
     $controller = new homeController();
     $products = $controller->readData();
+    // foreach ($products as $product) {
+    //     echo '<div class="divs">';
+    //     echo '<a href="products.php">';
+    //     echo '<img src="' . $product['home_image'] . '" class="r">';
+    //     echo '<p class="tekstet">' . $product['home_emri'] . '</p>';
+    //     echo '</a>';
+    //     echo '</div>';
+    // }
     ?>
     
         <div class="img_mainbox">
