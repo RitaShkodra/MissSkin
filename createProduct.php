@@ -3,22 +3,18 @@
 
     session_start();
     if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['role'] == 0) || !(isset($_SESSION['loggedin']))){
-        header("location:home.php");
+        header("location: home.php");
         exit;
     }
 
-    $prod = new ProdController;
-    if(isset($_GET['id'])){
-        $prodId = $_GET['id'];
-    } 
-    
-    $currentProd = $prod ->edit($prodId);
-
+    $produkti = new ProdController;
     if(isset($_POST['Submit'])){
-        $prod->update($_POST,$prodId);
+        $produkti->insert($_POST);
     }
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,21 +51,20 @@ if (isset($_SESSION['loggedin'])) {
 <h2><a href="dashboard.php">Kthehu ne Dashboard</a></h2>
 
     <div class="input">
-    <h1 >Edito produktin</h1>
+    <h1 >Kriho produktin</h1>
     <form method="POST"> 
-    
     <label for="titulli" >Emri i Produktit</label>
-        <input type="text" name="titulli" value="<?php echo $currentProd['title'];?>">
+        <input type="text" name="titulli" value="">
       
         <label for="foto">Foto</label> 
-        <input type="file" name="foto" value="<?php echo $currentProd['imgSrc'];?>">
+        <input type="file" name="foto" value="">
         
        
         <label for="cmimi">Cmimi</label>
-        <input type="text" name="cmimi" value="<?php echo $currentProd['price'];?>">
+        <input type="text" name="cmimi" value="">
       
         <label for="pershkrimi">Pershkrimi</label>
-        <input type="text" name="pershkrimi" value="<?php echo $currentProd['description'];?>">
+        <input type="text" name="pershkrimi" value="">
 
        
         <input type="Submit" name="Submit" value="Update" class ="update_button">
@@ -78,4 +73,3 @@ if (isset($_SESSION['loggedin'])) {
 
 </body>
 </html>
-<div>
