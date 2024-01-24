@@ -50,7 +50,12 @@ if (isset($_POST['login-btn'])) {
            <a href="hairbody.php"> <label for="">Hair-Body</label></a>   
             <a href="home.php" class="MissSkin"><label for="">MissSkin</label></a>
            <a href="login.php" class="LogIn active"> <label for="" >Log In</label></a>
-           <a href="dashboard.php" class="Dashboard"> <label for="" >Dashboard</label></a>
+           <?php 
+           if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
+                // Display the Dashboard link only for users with role 1 (admin)
+                echo '<a href="dashboard.php" class="Dashboard active">Dashboard</a>';
+            }
+           ?>
 
         </p>
     </div>
