@@ -20,26 +20,24 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="nav">
         <p>
             <div class="navicon">&#9776;</div>
-           <a href="home.html" class="active"> <label for="">Home</label></a>
-            <a href="face.html"><label for="">Face</label></a>
-           <a href="hairbody.html"> <label for="">Hair-Body</label></a>   
-            <a href="home.html" class="MissSkin"><label for="">MissSkin</label></a>
-           <a href="login.html" class="LogIn"> <label for="" >Log In</label></a>
+           <a href="home.php" class="active"> <label for="">Home</label></a>
+            <a href="face.php"><label for="">Face</label></a>
+           <a href="hairbody.php"> <label for="">Hair-Body</label></a>   
+            <a href="home.php" class="MissSkin"><label for="">MissSkin</label></a>
         </p>
+        <div class="LogIn">
         <?php 
-                
-                if (isset($_SESSION['loggedin'])) { 
-                    
-                    echo '<li><a href="Logout.php" class="nav">Log Out</a></li>';
-                    
-                    if ($_SESSION['role'] == 1) { 
-                      
-                        echo '<li><a href="dashboard.php" class="nav">Dashboard</a></li>';
-                    }
-                } else { 
-          
-                   echo ' <li><a href="login.php" class="nav">Login</a></li>';
-                 } ?>
+        if (isset($_SESSION['loggedin'])) { 
+            echo '<a href="Logout.php" class="LogIn">Log Out</a>';
+            
+            if ($_SESSION['role'] == 1) { 
+                echo '<a href="dashboard.php" class="LogIn">Dashboard</a>';
+            }
+        } else { 
+            echo '<a href="login.php" class="LogIn">Log In</a>';
+        } 
+        ?>
+    </div>
     </div>
 
     <div id="slideshow">
@@ -59,26 +57,26 @@ if (session_status() == PHP_SESSION_NONE) {
     
         <div class="img_mainbox">
             <div class="imgbox">
-                <a href="face.html"><img src="Fotot/fotoFtyra.jpg" alt=""></a>
+                <a href="face.php"><img src="Fotot/fotoFtyra.jpg" alt=""></a>
                 <label for="">· FACE ·</label>
             </div>
             <div class="imgbox">
-                <a href="hairbody.html"><img src="Fotot/hairfoto1.jpeg" alt=""></a>
+                <a href="hairbody.php"><img src="Fotot/hairfoto1.jpeg" alt=""></a>
                 <label for="">· HAIR ·</label>
             </div>
             <div class="imgbox">
-                <a href="face.html"><img src="Fotot/fotoSkin2.jpg" alt=""></a>
+                <a href="face.php"><img src="Fotot/fotoSkin2.jpg" alt=""></a>
                 <label for="">· FACE ·</label>
             </div>
             <div class="imgbox">
-                <a href="hairbody.html"><img src="Fotot/fotobody3.png" alt=""></a>
+                <a href="hairbody.php"><img src="Fotot/fotobody3.png" alt=""></a>
                 <label for="">· BODY ·</label>
             </div>
             <div class="quote">
                 <p>For the queens who understand that caring for their skin is a gentle act of love.Welcome to MissSkin, where your glow is our priority.</p>
             </div>
         </div>
-        <div class="oferta"><a href="face.html" ><img src="Fotot/slider3.png" alt=""></a></div>
+        <div class="oferta"><a href="face.php" ><img src="Fotot/slider3.png" alt=""></a></div>
 
         <div class="blog"><label for="">· BLOG · </label></div>
 

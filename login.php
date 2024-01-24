@@ -45,12 +45,12 @@ if (isset($_POST['login-btn'])) {
     <div class="nav">
         <p>
             <div class="navicon">&#9776;</div>
-           <a href="home.html"> <label for="">Home</label></a>
-            <a href="face.html"><label for="">Face</label></a>
-           <a href="hairbody.html"> <label for="">Hair-Body</label></a>   
-            <a href="home.html" class="MissSkin"><label for="">MissSkin</label></a>
-           <a href="login.html" class="LogIn active"> <label for="" >Log In</label></a>
-           <a href="dashboard.html" class="Dashboard"> <label for="" >Dashboard</label></a>
+           <a href="home.php"> <label for="">Home</label></a>
+            <a href="face.php"><label for="">Face</label></a>
+           <a href="hairbody.php"> <label for="">Hair-Body</label></a>   
+            <a href="home.php" class="MissSkin"><label for="">MissSkin</label></a>
+           <a href="login.php" class="LogIn active"> <label for="" >Log In</label></a>
+           <a href="dashboard.php" class="Dashboard"> <label for="" >Dashboard</label></a>
 
         </p>
     </div>
@@ -74,7 +74,7 @@ if (isset($_POST['login-btn'])) {
             <p><input type="submit" name="login" value="SIGN IN" class="login_button"></p>
         
         <div class="signup_link">
-          Don't have an account? <b><a href="register.html">Sign up!</b></a>
+          Don't have an account? <b><a href="register.php">Sign up!</b></a>
         </div>
          </div>
     </form>

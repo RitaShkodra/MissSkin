@@ -68,11 +68,11 @@ else if(!$UsernameisValid){
     <div class="nav">
         <p>
         <div class="navicon">&#9776;</div>
-        <a href="home.html"> <label for="">Home</label></a>
-        <a href="face.html"><label for="">Face</label></a>
-        <a href="hairbody.html"> <label for="">Hair-Body</label></a>
-        <a href="home.html" class="MissSkin"><label for="">MissSkin</label></a>
-        <a href="login.html" class="LogIn active"> <label for="">Log In</label></a>
+        <a href="home.php"> <label for="">Home</label></a>
+        <a href="face.php"><label for="">Face</label></a>
+        <a href="hairbody.php"> <label for="">Hair-Body</label></a>
+        <a href="home.php" class="MissSkin"><label for="">MissSkin</label></a>
+        <a href="login.php" class="LogIn active"> <label for="">Log In</label></a>
 
         </p>
     </div>
