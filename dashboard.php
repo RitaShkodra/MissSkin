@@ -1,7 +1,7 @@
 <?php 
   require_once 'ProdController.php';
   require_once 'homeController.php';
-  include_once 'userMapper.php';
+  include_once 'UserMapper.php';
   
 
   session_start();

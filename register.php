@@ -23,9 +23,8 @@ $emptyErr = $emailValidErr = $emailExistsErr = $usernameValidErr =$UsernameExist
 
 if (isset($_POST['register-btn'])) {
     $register = new RegisterLogic($_POST);
-    $fullname=$register->getFullname();
-    $username=$register->getUsername();
     $email=$register->getEmail();
+    $username=$register->getUsername();
     $EmptyFields=$register->emptyFields();
     $EmailisValid = $register->validateEmail();
     $UsernameisValid = $register->validateUsername();
@@ -90,12 +89,11 @@ else if(!$UsernameisValid){
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" onsubmit="return validateRegister()">
             <div class="inputr w-40">
                 <h1>Create Account</h1>
-                <p><input type="text" id="fullname" placeholder="Full Name" required></p>
-                <p><input type="text" id="username" placeholder="Username" required></p>
-                <p><input type="email" id="email" placeholder="Email" required></p>
-                <p><input type="password" id="password" placeholder="Password" required></p>
+                <p><input autocomplete="off" type="text" name="register-emailaddress" id="email" placeholder="email" required value="<?php echo $email;?>"></p>
+                <p><input autocomplete="off" type="text" name="register-username" id="user" placeholder="username" required value="<?php echo $username;?>"></p>
+                <p><input type="password" name="register-password" id="password" placeholder="password" required></p>
                 <p>Sign up for the latest MissSkin updates, special offers, and more. Unsubscribe at any time.</p>
-                <p><input type="submit" name="create_acc" value="CREATE ACCOUNT" class="register_button"></p>
+                <p><input type="submit" name="register-btn" value="CREATE ACCOUNT" class="register_button"></p>
             </div>
         </form>
     </div>

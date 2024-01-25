@@ -1,7 +1,7 @@
 <?php
-include_once 'admin.php';
-include_once 'simpleUser.php';
-require_once 'userMapper.php';
+include_once 'adminClass.php';
+include_once 'simpleUserClass.php';
+require_once 'UserMapper.php';
 
 
 class LoginLogic{

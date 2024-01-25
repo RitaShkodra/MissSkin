@@ -71,11 +71,11 @@ if (isset($_POST['login-btn'])) {
     <div class="input w-40" id="">
         <h1>Login</h1>
 
-        <form action="action="<?php echo $_SERVER['PHP_SELF']; ?> method="post"  onsubmit="return validateLogin()">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validateLogin()">
 
         <div class="text_form">
-            <p><input type="text" id="loginUsername" placeholder=" Username"></p>
-            <p><input type="password" id="loginPassword" placeholder="Password"></p>
+            <input type="text" id="loginUsername" name="username" placeholder=" Username">
+            <input type="password" id="loginPassword" name="password" placeholder="Password">
             <p><input type="submit" name="login" value="SIGN IN" class="login_button"></p>
         
         <div class="signup_link">
