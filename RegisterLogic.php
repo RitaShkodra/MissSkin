@@ -54,7 +54,7 @@ class RegisterLogic
         }
     }
     public function validatePassword(){
-        $passwordRegex = "/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/";
+        $passwordRegex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/";
         
         if(preg_match($passwordRegex, $this->password)){
             return true;
