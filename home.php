@@ -1,6 +1,6 @@
 <?php
-include_once 'adminClass.php';
-include_once 'simpleUserClass.php';
+include_once 'admin.php';
+include_once 'simpleUser.php';
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }

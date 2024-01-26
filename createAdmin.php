@@ -1,6 +1,6 @@
 <?php 
     require_once 'UserMapper.php';
-    require_once 'registerLogic.php';
+    require_once 'RegisterLogic.php';
 
     session_start();
     if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['role'] == 0) || !(isset($_SESSION['loggedin']))){

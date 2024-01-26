@@ -1,30 +1,21 @@
 <?php
 include_once 'simpleUser.php';
 include_once 'admin.php';
-require_once 'userMapper.php';
+require_once 'UserMapper.php';
 
 
 class RegisterLogic
 {
-    private $fullname = "";
-    private $username = "";
     private $email="";
+    private $username = "";
     private $password = "";
 
     public function __construct($formData)
     {
-
-        $this->fullname = $formData['register-fullname'];
-        $this->username = $formData['register-username'];
         $this->email = $formData['register-emailaddress'];
+        $this->username = $formData['register-username'];
         $this->password = $formData['register-password'];
     }
-
-    public function getFullname()
-    {
-        return $this->fullname;
-    }
-
 
     public function getEmail()
     {
@@ -38,14 +29,14 @@ class RegisterLogic
 
 
     public function emptyFields(){
-        if(empty($this->fullname)||  empty($this->username)|| empty($this->email) || empty($this->password)){
+        if(empty($this->email) || empty($this->username)|| empty($this->password)){
             return true;
         }
         return false;
     }
 
     public function validateEmail(){
-       $emailRegex = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
+        $emailRegex = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/";
         
         if(preg_match($emailRegex, $this->email)){
             return true;
@@ -54,7 +45,7 @@ class RegisterLogic
         }
     }
     public function validateUsername(){
-        $usernameRegex = '/^[a-zA-Z]+$/';
+        $usernameRegex = "/^[a-zA-Z0-9._-]{3,15}$/";
         
         if(preg_match($usernameRegex, $this->username)){
             return true;
@@ -63,7 +54,7 @@ class RegisterLogic
         }
     }
     public function validatePassword(){
-        $passwordRegex = '/^.{8,}$/'; //kqyr a mi hek thojzat
+        $passwordRegex = "/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/";
         
         if(preg_match($passwordRegex, $this->password)){
             return true;
@@ -102,19 +93,19 @@ class RegisterLogic
         $role = 0;
     }
 
-    $user = new SimpleUser($this->fullname, $this->username, $this->email, $this->password, $role);
+    $user = new SimpleUser($this->email, $this->username, $this->password, $role);
 
     $mapper->insertUser($user);
-    header("Location:../home.php");
+    header("Location:../index.php");
 }
 
 
     public function insertDataAdmin(){
-        $admin = new Admin($this->fullname, $this->username, $this->email, $this->password, 1);
+        $admin = new Admin($this->email, $this->username, $this->password,1);
 
         $mapper = new UserMapper();
         $mapper->insertUser($admin);
-        header("Location:../dashboard.php");
+        header("Location:../views/dashboard.php");
     }
     
 }

@@ -4,10 +4,9 @@ require_once 'person.php';
 
 class Admin extends Person
 {
-    public function __construct($id, $fullname,$email, $username,  $password, $role)
+    public function __construct($email, $username,  $password, $role)
     {
-        parent::__construct($id, $fullname, $email, $username, $password, $role);
-
+        parent::__construct($email, $username,  $password, $role); 
     }
 
 
@@ -23,20 +22,6 @@ class Admin extends Person
         setcookie("username", $this->getUsername(), time() + 2 * 24 * 60 * 60);
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-   
-    
-    public function getFullname()
-    {
-        return $this->fullname;
-    }
-    public function setFullname($fullname)
-{
-    $this->fullname = $fullname;
-}
 
     public function getUsername()
     {
@@ -45,7 +30,6 @@ class Admin extends Person
     public function setUsername($username)
 {
     $this->username = $username;
-    
 }
     public function getPassword()
     {

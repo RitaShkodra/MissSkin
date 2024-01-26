@@ -1,135 +1,130 @@
-<?php 
-include_once 'database.php';
-//include_once __DIR__ . 'database.php';
+<?php
+require_once "database.php";
 
-class UserMapper{
-    private $connection;
+class UserMapper extends Database
+{
 
-    function __construct(){
-        $conn = new Database;
-        $this->connection = $conn->pdo;
+    private $db;
+    private $query;
+
+    public function __construct()
+    {
+        $this->db=new Database;
     }
 
+    public function getUserByID($userId)
+    {
+        $query = $this->db->pdo->prepare("SELECT * from user where userID=:id");
+        $query->bindParam(":id", $userId);
+        $query->execute();
+         $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+   
+    public function getUserByUsername($username)
+    {
+        $query =$this->db->pdo->prepare("SELECT * from user where username=:username");
+        $query->bindParam(":username", $username);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
-    function insertUser($user){
+    public function getAllUsers()
+    {
+        $query =$this->db->pdo->prepare("SELECT * from user");
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
-        $conn = $this->connection;
+    public function getAllSimpleUsers()
+    {
+        $query =$this->db->pdo->prepare("SELECT * from user where role=0");
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
-        $id = $user->getId();
-        $fullname = $user->getFullname();
-        $username = $user->getUsername();
+    public function getAllAdmins()
+    {
+        $query =$this->db->pdo->prepare("SELECT * from user where role=1");
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function insertUser(\Person $user)
+    {
+        $query =$this->db->pdo->prepare("INSERT into user (email, username, userpassword, role) values (:email,:username,:pass,:role)");
         $email = $user->getEmail();
-        $password = $user->getPassword();
-
-        $sql = "INSERT INTO user (id,fullname,username,email,password) VALUES (?,?,?,?,?,?)";
-
-        $statement = $conn->prepare($sql);
-
-        $statement->execute([$id,$fullname,$username, $email, $password]);
-
-        echo "<script> alert('User has been inserted successfuly!'); </script>";
-
+        $username = $user->getUsername();
+        $pass = password_hash($user->getPassword(), PASSWORD_BCRYPT);
+        $role = $user->getRole();
+        $query->bindParam(":email", $email);
+        $query->bindParam(":username", $username);
+        $query->bindParam(":pass", $pass);
+        $query->bindParam(":role", $role);
+        $query->execute();
     }
 
-    function getAllUsers(){
-        $conn = $this->connection;
-
-        $sql = "SELECT * FROM user";
-
-        $statement = $conn->query($sql);
-        $users = $statement->fetchAll();
-
-        return $users;
-    }
-
-    function getUserById($id){
-        $conn = $this->connection;
-
-        $sql = "SELECT * FROM user WHERE id='$id'";
-
-        $statement = $conn->query($sql);
-        $user = $statement->fetch();
-
-        return $user;
-    }
-
-    function updateUser($id,$fullname,$username, $email, $password){
-         $conn = $this->connection;
-
-         $sql = "UPDATE user SET fullname=?,  username=?, email=?, password=? WHERE id=?";
-
-         $statement = $conn->prepare($sql);
-
-         $statement->execute([$fullname,$username,$email,$password,$id]);
-
-         echo "<script>alert('update was successful'); </script>";
-    } 
-
-    function deleteUser($id){
-        $conn = $this->connection;
-
-        $sql = "DELETE FROM user WHERE id=?";
-
-        $statement = $conn->prepare($sql);
-
-        $statement->execute([$id]);
-
-        echo "<script>alert('delete was successful'); </script>";
-   } 
-    function makeUserAdmin($userID)
+    public function edit(\Person $user, $id)
     {
-        $conn = $this->connection;
-
-        $sql = "UPDATE user SET role=1 WHERE userID=?";
-        $statement = $conn->prepare($sql);
-        $statement->execute([$userID]);
-
-        echo "<script>alert('User has been made an admin successfully!');</script>";
-    }
-    public function makeAdminUser($userID)
-    {
-        $conn = $this->connection;
-
-        $sql = "UPDATE user SET role=0 WHERE userID=?";
-        $statement = $conn->prepare($sql);
-        $statement->execute([$userID]);
-
-        echo "<script>alert('Admin has been made a user successfully!');</script>";
-    }
-    public function emailExists($email)
-    {
-        $conn = $this->connection;
-
-        $sql = "SELECT COUNT(*) FROM user WHERE email=?";
-        $statement = $conn->prepare($sql);
-        $statement->execute([$email]);
-
-        return $statement->fetchColumn() > 0;
+        $query =$this->db->pdo->prepare("UPDATE user set username=:username, email=:email, userpassword=:userpassword where UserID=:id");
+        var_dump($user);
+        $email = $user->getEmail();
+        $username = $user->getUsername();
+        $userpassword = password_hash($user->getPassword(), PASSWORD_BCRYPT);
+        $query->bindParam(":email", $email);
+        $query->bindParam(":username", $username);
+        $query->bindParam(":userpassword", $userpassword);
+        $query->bindParam(":id", $id);
+        $query->execute();
     }
 
-    public function usernameExists($username)
+    public function makeUserAdmin($userID) {
+        $query =$this->db->pdo->prepare("UPDATE user SET role = 1 WHERE userID = :userID");
+        $query->bindParam(':userID', $userID);
+        $query->execute();
+      }
+
+      public function makeAdminUser($userID) {
+        $query =$this->db->pdo->prepare("UPDATE user SET role = 0 WHERE userID = :userID");
+        $query->bindParam(':userID', $userID);
+        $query->execute();
+      }
+
+    public function deleteUser($userId)
     {
-        $conn = $this->connection;
-
-        $sql = "SELECT COUNT(*) FROM user WHERE username=?";
-        $statement = $conn->prepare($sql);
-        $statement->execute([$username]);
-
-        return $statement->fetchColumn() > 0;
+        $query =$this->db->pdo->prepare("DELETE from user where userID=:id");
+        $query->bindParam(":id", $userId);
+        $query->execute();
+        return header('Location: ../views/dashboard.php');
     }
 
     public function countUsers()
     {
-        $conn = $this->connection;
-
-        $sql = "SELECT COUNT(*) FROM user";
-        $statement = $conn->prepare($sql);
-        $statement->execute();
-
-        return $statement->fetchColumn();
+        $stmt = $this->db->pdo->prepare('SELECT COUNT(*) FROM user');
+        $stmt->execute();
+        return $stmt->fetchColumn();
     }
+
+    public function emailExists($email)
+    {
+        $stmt = $this->db->pdo->prepare("SELECT COUNT(*) FROM user WHERE email = ?");
+        $stmt->execute([$email]);
+
+        return $stmt->fetchColumn() > 0;
+    }
+
+    
+    public function usernameExists($username)
+    {
+
+        $stmt = $this->db->pdo->prepare("SELECT COUNT(*) FROM user WHERE username = ?");
+        $stmt->execute([$username]);
+
+        return $stmt->fetchColumn() > 0;
+    }
+    
 }
-
-
-
-?>
