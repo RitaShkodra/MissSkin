@@ -40,7 +40,6 @@ if (isset($_POST['login-btn'])) {
         }
     } 
 ?>
-
 <body>
     <div class="nav">
         <p>
@@ -71,11 +70,11 @@ if (isset($_POST['login-btn'])) {
     <div class="input w-40" id="">
         <h1>Login</h1>
 
-  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return validateLogin()">
+        <form class="login_form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form" onsubmit="return validateLogin()">
         <div class="text_form">
-            <input type="text" id="loginUsername" name="username" placeholder="username">
-            <input type="password" id="loginPassword" name="password" placeholder="password">
-            <p><input type="submit" name="login" value="SIGN IN" class="login_button"></p>
+        <input autocomplete="off" type="text" name="username" placeholder = "username" id="user" required value="<?php echo $username;?>">
+        <input type="password" name="password" placeholder = "password" id="password" required>
+            <p><input type="submit" name="login-btn" value="SIGN IN" class="login_button"></p>
         
         <div class="signup_link">
           Don't have an account? <b><a href="register.php">Sign up!</b></a>

@@ -86,6 +86,8 @@ class RegisterLogic
     public function insertData()
 {
     $mapper = new UserMapper();
+    $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
+
     $numUsers = $mapper->countUsers();
     if ($numUsers < 2) {
         $role = 1;
@@ -93,10 +95,10 @@ class RegisterLogic
         $role = 0;
     }
 
-    $user = new SimpleUser($this->email, $this->username, $this->password, $role);
+    $user = new SimpleUser($this->email, $this->username, $hashedPassword , $role);
 
     $mapper->insertUser($user);
-    header("Location:../index.php");
+    header("Location:home.php");
 }
 
 
@@ -105,7 +107,7 @@ class RegisterLogic
 
         $mapper = new UserMapper();
         $mapper->insertUser($admin);
-        header("Location:../views/dashboard.php");
+        header("Location:dashboard.php");
     }
     
 }

@@ -47,7 +47,6 @@
     <div class="input">
         <h1>Krijo Admin</h1>
         <form method="POST" action="registerLogic.php"> 
-            <p><label for="fullname">Full Name:</label><input type="text" id="fullname" name="fullname" placeholder="Full Name" required></p>
             <p><label for="username">Username:</label><input type="text" id="username" name="username" placeholder="Username" required></p>
             <p><label for="email">Email:</label><input type="email" id="email" name="email" placeholder="Email" required></p>
             <p><label for="password">Password:</label><input type="password" id="password" name="password" placeholder="Password" required></p>

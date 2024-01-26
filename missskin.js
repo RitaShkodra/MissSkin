@@ -29,8 +29,8 @@ function validateRegister() {
 
 
 function validateLogin() {
-    var loginUsername = document.getElementById('loginUsername').value
-    var loginPassword = document.getElementById('loginPassword').value
+    var loginUsername = document.getElementById('user').value
+    var loginPassword = document.getElementById('password').value
 
     if (loginUsername == "") {
         alert('Please enter a username.');
@@ -42,7 +42,7 @@ function validateLogin() {
         return false;
     }
 
-    if (loginUsername !== username && loginPassword !== password) {
+    if (loginUsername !== user && loginPassword !== password) {
         alert('Incorrect username or password.');
         return false;
     }

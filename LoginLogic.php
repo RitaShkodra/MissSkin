@@ -42,10 +42,10 @@ class LoginLogic{
         $user = $mapper->getUserByUsername($this->username);
         if ($user && password_verify($this->password, $user['userpassword'])) {
             if ($user['role'] == 1) {
-                $obj = new Admin($user['userID'],$user['userFullname'],$user['userEmail'], $user['username'], $user['userpassword'], $user['role']);
+                $obj = new Admin($user['userID'], $user['username'], $user['userpassword'], $user['role']);
                 $obj->setSession();
             } else {
-                $obj = new SimpleUser($user['userID'],$user['userFullname'],$user['userEmail'], $user['username'], $user['userpassword'], $user['role']);
+                $obj = new SimpleUser($user['userID'], $user['username'], $user['userpassword'], $user['role']);
                 $obj->setSession();
             }
             $_SESSION['loggedin'] = true;
@@ -56,4 +56,4 @@ class LoginLogic{
     }
     
     
-}  
+}
