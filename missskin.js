@@ -24,7 +24,69 @@ function validateRegister() {
 
 }
 
+// let name1 = document.forms['form']['username'];
+// let password = document.forms['form']['password'];
 
+// let name1_error = document.getElementById('name1_error');
+// let password_error = document.getElementById('password_error');
+
+// name1.addEventListener('textInput', name1_Verify);
+// password.addEventListener('textInput', password_Verify);
+
+// function validated() {
+//     if (name1.value.length < 9) {
+//         name1_error.style.display = "block";
+//         name1.focus();
+//         return false;
+//     } else {
+//         name1_error.style.display = "none";
+//     }
+
+//     if (password.value.length < 6) {
+//         password_error.style.display = "block";
+//         password.focus();
+//         return false;
+//     } else {
+//         password_error.style.display = "none";
+//     }
+
+
+
+
+//     return validateLogin();
+// }
+
+// function validateLogin() {
+//     var loginUsername = document.getElementById('user').value;
+//     var loginPassword = document.getElementById('password').value;
+
+//     if (loginUsername === "") {
+//         alert('Please enter a username.');
+//         return false;
+//     }
+
+//     if (loginPassword === "") {
+//         alert('Please enter a password.');
+//         return false;
+//     }
+
+
+//     return true;
+// }
+
+// function name1_Verify() {
+//     if (name1.value.length >= 6) {
+//         name1_error.style.display = "none";
+//         return true;
+//     }
+// }
+
+// function password_Verify() {
+//     if (password.value.length >= 6) {
+//         password_error.style.display = "none";
+//         return true;
+//     }
+// }
 
 
 
@@ -42,7 +104,7 @@ function validateLogin() {
         return false;
     }
 
-    if (loginUsername !== user && loginPassword !== password) {
+    if (loginUsername !== "<?php echo $username; ?>" || loginPassword !== "") {
         alert('Incorrect username or password.');
         return false;
     }

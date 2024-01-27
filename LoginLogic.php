@@ -4,6 +4,7 @@ include_once 'simpleUser.php';
 require_once 'UserMapper.php';
 
 
+
 class LoginLogic{
 
     private $username="";
@@ -18,6 +19,10 @@ class LoginLogic{
     public function getUsername()
     {
         return $this->username;
+    }
+    public function getPassword()
+    {
+        return $this->password;
     }
     
     function emptyFields(){

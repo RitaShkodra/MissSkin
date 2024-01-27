@@ -99,7 +99,7 @@ class UserMapper extends Database
         $query =$this->db->pdo->prepare("DELETE from user where userID=:id");
         $query->bindParam(":id", $userId);
         $query->execute();
-        return header('Location: ../views/dashboard.php');
+        return header('Location:dashboard.php');
     }
 
     public function countUsers()
