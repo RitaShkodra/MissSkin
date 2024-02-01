@@ -1,11 +1,67 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-    header("location: home.php");
-    exit;
+    header("Location: home.php");
+        exit;
 }
-include "LoginLogic.php";
+// session_start();
+// if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+//     header("location: home.php");
+//     exit;
+// }
+// include "LoginLogic.php";
 
+
+// session_start();
+
+// if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+//     header("location: home.php");
+//     exit;
+// }
+
+// include "simpleUser.php";
+// include "UserMapper.php";
+// include "LoginLogic.php";
+
+// // $userMapper = new UserMapper(); // Krijoni instancën e UserMapper
+// $formData = $_POST;
+// $loginHandler = new LoginLogic($formData);
+
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $username = $_POST['username'];
+//     $password = $_POST['password'];
+
+//     if ($loginHandler->loginUser($username, $password)) {
+//         header("Location: home.php");
+//         exit;
+//     } else {
+//         $error = "Invalid username or password.";
+//     }
+// }
+
+
+
+// Include necessary files
+include "LoginLogic.php";
+include_once 'UserMapper.php';
+
+$loginLogic = new LoginLogic($_POST);
+$error = isset($error) ? $error : '';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if ($loginLogic->loginUser($username, $password)) {
+        header("Location: home.php");
+        exit;
+    } else {
+        $error = "Incorrect username or password";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,28 +74,6 @@ include "LoginLogic.php";
     
 </head>
 
-<?php 
-$usernameValidErr = $passwordValid=$username="";
-if (isset($_POST['login-btn'])) {
-    $login=new LoginLogic($_POST);
-    $username=$login->getUsername();
-    $EmptyFields=$login->emptyFields();
-    $usernameExists=$login->usernameExists();
-    $passwordVerify=$login->passwordVerify();
-
-    if($usernameExists){
-            if($passwordVerify){
-                    header("Location:home.php"); 
-                }
-                else{
-                    $passwordValid = "Password është gabim!";
-            }
-        }
-        else{
-            $usernameValidErr = "Username nuk ekziston!";
-        }
-    } 
-?>
 <body>
     <div class="nav">
         <p>
@@ -58,10 +92,7 @@ if (isset($_POST['login-btn'])) {
 
         </p>
     </div>
-    <div class="errors">
-          <span> <?php echo $usernameValidErr;?></span>
-          <span> <?php echo $passwordValid;?></span>
-     </div>
+ 
 
     <div class="faqja">
         <div class="img w-40">
@@ -69,21 +100,27 @@ if (isset($_POST['login-btn'])) {
         </div>
     <div class="input w-40" id="">
         <h1>Login</h1>
+        <div class="error-message">
+        <?php echo $error; ?>
+        </div>
 
         <form class="login_form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form" onsubmit="return validateLogin()">
-        <div class="text_form">
-        <input autocomplete="off" type="text" name="username" placeholder = "username" id="user" required value="<?php echo $username;?>">
-        <input type="password" name="password" placeholder = "password" id="password" required>
-            <p><input type="submit" name="login-btn" value="SIGN IN" class="login_button"></p>
-        
+    <div class="text_form">
+        <input autocomplete="off" type="text" name="username" placeholder="username" id="user" required>
+        <input autocomplete="current-password" type="password" name="password" placeholder="password" id="pass" required>
+        <p><input type="submit" name="login-btn" value="SIGN IN" class="login_button"></p>
         <div class="signup_link">
-          Don't have an account? <b><a href="register.php">Sign up!</b></a>
+            Don't have an account? <b><a href="register.php">Sign up!</b></a>
         </div>
-         </div>
-    </form>
+    </div>
+</form>
+        
+        
+
    
      </div>
 </div>
+
 
 <footer>
     <div class="footer">

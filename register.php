@@ -56,7 +56,7 @@ else if(!$UsernameisValid){
     $usernameValidErr = "Username nuk mund të përmbajë hapësira as karaktere speciale!";
    
 }else if(!$PasswordisValid){
-    $passwordValid= "Password duhet të ketë së paku 8 karaktere dhe të përmbajë shkronja të vogla, të mëdha, numra dhe karaktere speciale!";
+    $passwordValid= "Password duhet të ketë së paku 8 karaktere!";
   
 }
 }
@@ -76,11 +76,11 @@ else if(!$UsernameisValid){
         </p>
     </div>
     <div class="errors">
-    <span><?php echo $emailValidErr;?></span>
-    <span> <?php echo $emailExistsErr;?></span>
-    <span> <?php echo $usernameValidErr;?></span>
-    <span><?php echo $UsernameExistsErr;?></span>
-    <span> <?php echo $passwordValid;?></span>
+    <span><php echo $emailValidErr;?></span>
+    <span> <pphp echo $emailExistsErr;?></span>
+    <span> <php echo $usernameValidErr;?></span>
+    <span><php echo $UsernameExistsErr;?></span>
+    <span> <php echo $passwordValid;?></span>
     </div>
     <div class="registerbox">
         <div class="img w-40">
@@ -91,7 +91,7 @@ else if(!$UsernameisValid){
                 <h1>Create Account</h1>
                 <p><input autocomplete="off" type="text" name="register-emailaddress" id="email" placeholder="email" required value="<?php echo $email;?>"></p>
                 <p><input autocomplete="off" type="text" name="register-username" id="user" placeholder="username" required value="<?php echo $username;?>"></p>
-                <p><input type="password" name="register-password" id="password" placeholder="password" required></p>
+                <p><input type="password" name="register-password" id="pass" placeholder="password" required></p>
                 <p>Sign up for the latest MissSkin updates, special offers, and more. Unsubscribe at any time.</p>
                 <p><input type="submit" name="register-btn" value="CREATE ACCOUNT" class="register_button"></p>
             </div>

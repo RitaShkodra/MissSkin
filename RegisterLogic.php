@@ -54,7 +54,7 @@ class RegisterLogic
         }
     }
     public function validatePassword(){
-        $passwordRegex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/";
+        $passwordRegex = "/.{8,}/";
         
         if(preg_match($passwordRegex, $this->password)){
             return true;
@@ -86,7 +86,6 @@ class RegisterLogic
     public function insertData()
 {
     $mapper = new UserMapper();
-    $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
 
     $numUsers = $mapper->countUsers();
     if ($numUsers < 2) {
@@ -95,7 +94,7 @@ class RegisterLogic
         $role = 0;
     }
 
-    $user = new SimpleUser($this->email, $this->username, $hashedPassword , $role);
+    $user = new SimpleUser($this->email, $this->username, $this->password, $role);
 
     $mapper->insertUser($user);
     header("Location:home.php");
