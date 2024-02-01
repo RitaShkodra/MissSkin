@@ -5,7 +5,7 @@
   
 
   session_start();
-if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['role'] == 1) || !(isset($_SESSION['loggedin']))){
+if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['role'] == 0) || !(isset($_SESSION['loggedin']))){
     header("location:home.php");
     exit;
 }
@@ -45,7 +45,6 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
         <table class="bNews">
             <thead>
                 <tr>
-                    <th>Fullname</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Password</th>
@@ -61,7 +60,6 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
                 foreach ($adminList as $mapper) {
                 ?>
                     <tr>
-                        <td><?php echo $mapper['fullname']; ?></td>
                         <td><?php echo $mapper['username']; ?></td>
                         <td><?php echo $mapper['email']; ?></td>
                         <td><?php echo $mapper['userpassword']; ?></td>
@@ -104,7 +102,6 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
         <table class="content-table">
             <thead>
                 <tr>
-                    <th>Fullname</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Password</th>
@@ -119,7 +116,6 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
                 foreach ($userList as $user) {
                 ?>
                     <tr>
-                        <td><?php echo $user['fullname']; ?></td>
                         <td><?php echo $user['username']; ?></td>
                         <td><?php echo $user['email']; ?></td>
                         <td><?php echo $user['password']; ?></td>

@@ -13,7 +13,7 @@ class ProdController
 
     public function readData()
     {
-        $query = $this->db->pdo->query('SELECT * FROM produkti');
+        $query = $this->db->pdo->query('SELECT * FROM product');
 
         return $query->fetchAll();
     }
