@@ -2,9 +2,13 @@
 include_once 'admin.php';
 include_once 'simpleUser.php';
 include "ProdController.php"; 
-if (session_status() == PHP_SESSION_NONE) {
-  session_start();
-}
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
+    exit;
+  }
+
+$prodController = new ProdController();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,29 +46,14 @@ if (session_status() == PHP_SESSION_NONE) {
     </div>
     </div>
     <div class="oferta-face"><img src="Fotot/slider3.png" alt=""></div>
-
-    <!-- Shfaqja e produkteve -->
     <div class="products">
-        <?php
-            // Funksioni per shfaqjen e produkteve
-            function displayProduct($imgSrc, $title, $price, $description) {
-                echo '<div class="product">';
-                echo '<img src="' . $imgSrc . '" alt="">';
-                echo '<h1>' . $title . '</h1>';
-                echo '<p>€' . $price . '</p>';
-                echo '<label for="">' . $description . '</label>';
-                echo '</div>';
-            }
-
-            // Seksioni i parë me produkte
-            displayProduct("Fotot/Oferta1f1.webp", "Waterlight Gel Moisturizer 72 Hour Hydration 50 ml", "8.50", "Instantly Hydrates Skin | LightWeight & Non-Sticky");
-            displayProduct("Fotot/Oferta1f2.webp", "Clearing & Calming Acne Face Wash 72 Hour Hydration 100 ml", "6.25", "Speeds Up Healing Of Acne | Gentle Cleansing | Acne");
-            displayProduct("Fotot/Oferta1f3.webp", "Acne Care & Healing Gel Moisturiser With Tea Tree", "6.99", "Healing Of Acne | Gently Hydrates |Treats & Prevents");
-            displayProduct("Fotot/Oferta1f4.webp", "Overnight Acne Spot Corrector,Fast-Acting Spot Treatment: & Cica 50 ml", "9.70", "Reduces & Shrinks | Works on Active Acne, Blackheads");
-            displayProduct("Fotot/Oferta1f5.webp", "Dark Spot & Hyperpigmentation Correcting Power Serum", "12.00", "Fades Dark Spots | Reduces Hyperpigmentation");
-            displayProduct("Fotot/Oferta1f6.webp", "Super Clarifying 12% Niacinamide Face Serum for All Skin Types", "11.50", "Controls Oil | Refines Pores | Evens out Rough Texture");
-        ?>
-    </div>
+    <?php
+    $faceProducts = $prodController->readDataByType('face');
+    foreach ($faceProducts as $product):
+        $prodController->displayProduct($product['Foto'], $product['Emri'], $product['Cmimi'], $product['Pershkrimi']);
+    endforeach;
+    ?>
+</div>
 
     <hr>
 
@@ -73,37 +62,29 @@ if (session_status() == PHP_SESSION_NONE) {
     </div>
 
     <hr>
-
-    <!-- Seksioni i dytë me produkte (Serumet) -->
     <div class="serums">
-        <div class="serumfoto">
-            <img src="Fotot/fotoSerum.jpg" alt="">
-        </div>
+    <div class="serumfoto">
+        <img src="Fotot/fotoSerum.jpg" alt="">
+    </div>
 
-        <div class="serum_products">
-            <div class="serum_row">
-                <?php
-                function displaySerum($imgSrc, $title, $price, $description) {
-                    echo '<div class="serum_product">';
-                    echo '<img src="' . $imgSrc . '" alt="">';
-                    echo '<h1>' . $title . '</h1>';
-                    echo '<p>€' . $price . '</p>';
-                    echo '<label for="">' . $description . '</label>';
-                    echo '</div>';
+    <div class="serum_products">
+        <div class="serum_row">
+            <?php
+            $serumProducts = $prodController->readDataByType('serum');
+            $count = 0; 
+
+            foreach ($serumProducts as $product):
+            
+                $prodController->displaySerum($product['Foto'], $product['Emri'], $product['Cmimi'], $product['Pershkrimi']);
+                $count++;
+                if ($count ==2) {
+                    echo '</div><div class="serum_row">';
                 }
-                displaySerum("Fotot/Serum1.webp", "Dark Spot & Hyperpigmentation Correcting Power Serum", "16.99", "Fades Dark Spots | Reduces Hyperpigmentation");
-                displaySerum("Fotot/Serum2.webp", "Super Clarifying 12% Niacinamide Face Serum for All", "19.70", "Controls Oil | Refines Pores | Evens out Rough Texture");
-                ?>
-            </div>
-
-            <div class="serum_row">
-                <?php
-                    displaySerum("Fotot/Serum3.webp", "Vitamin C Antioxidant Radiance Serum 30 ml", "12.55", "Reduces Pigmentation | Energizes Skin");
-                    displaySerum("Fotot/Serum4.webp", "Anti Acne Serum 30 ml + Pigmentation Relief Duo", "22.50", "Prevents Breakouts & Whiteheads");
-                ?>
-            </div>
+            endforeach;
+            ?>
         </div>
     </div>
+</div>
 
     
 
@@ -119,18 +100,14 @@ if (session_status() == PHP_SESSION_NONE) {
         </p>
         <hr>
     </div>
-
-    <!-- Pjesa e fundit me produkte -->
     <div class="products">
-        <?php
-            displayProduct("Fotot/Acne1.webp", "Overnight Acne Spot Corrector 72 Hour Hydration 30 ml", "18.50", "Reduces & Shrinks Acne | Works on active Blackheads");
-            displayProduct("Fotot/Mask1.webp", "Overnight Exfoliating AHA BHA Radiance Mask 72 Hour Hydration 100 ml", "6.25", "Double Exfoliates | Reduces Pigmentation | Evens Out Skin");
-            displayProduct("Fotot/Moisturiser1.webp", "Daily Moisturiser With Blue Light Protection and Reduces Pigmentation", "16.99", "Hydrates Skin | Improves Dullness | All Skin types");
-            displayProduct("Fotot/Toner1.webp", "Hydrating Toner and Overnight Acne Spot Corrector 100 ml", "9.70", "Reduces & Shrinks | Works on Active Acne, Blackheads");
-            displayProduct("Fotot/Oil1.webp", "Oil Free Matte Moisturiser with Blue Light Protection 30ml", "14.00", "Fades Dark Spots | Reduces Hyperpigmentation| All Skin");
-            displayProduct("Fotot/Sunscreen.webp", "Mineral Matte Tinted Sunscreen for All Skin Types 50 g", "11.20", "Shields skin from Broad Spectrum UVA and UVB rays");
-        ?>
-    </div>
+    <?php
+    $faceProducts = $prodController->readDataByType('faceP');
+    foreach ($faceProducts as $product):
+        $prodController->displayProduct($product['Foto'], $product['Emri'], $product['Cmimi'], $product['Pershkrimi']);
+    endforeach;
+    ?>
+</div>
 <footer>
     <div class="footer">
         <div class="minifooter">

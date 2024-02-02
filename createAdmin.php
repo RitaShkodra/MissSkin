@@ -42,16 +42,58 @@
             ?>
         </div>
     </div>
-    <h2><a href="dashboard.php">Kthehu ne Dashboard</a></h2>
+    <div class="kthehuD">
+<h2 ><a href="dashboard.php"> DASHBOARD</a></h2>
+</div>
 
-    <div class="input">
+    <div class="input createP">
         <h1>Krijo Admin</h1>
         <form method="POST" action="registerLogic.php"> 
-            <p><label for="username">Username:</label><input type="text" id="username" name="username" placeholder="Username" required></p>
-            <p><label for="email">Email:</label><input type="email" id="email" name="email" placeholder="Email" required></p>
-            <p><label for="password">Password:</label><input type="password" id="password" name="password" placeholder="Password" required></p>
-            <p><input type="submit" name="create_acc" value="Save" class="update_button"></p>
+            <p><label for="username">Username</label></p>
+            <p><input type="text" id="username" name="username" placeholder="Username" required></p>
+            <p><label for="email">Email</label></p>
+            <p><input type="email" id="email" name="email" placeholder="Email" required></p>
+            <p><label for="password">Password</label></p>
+            <p><input type="password" id="password" name="password" placeholder="Password" required></p>
+            <p><input type="submit" name="create_acc" value="Krijo" class="update_button"></p>
         </form>
     </div>
+    <footer>
+    <div class="footer">
+        <div class="minifooter">
+            <h1 id="footerTitle">MissSkin</h1>
+            <p id="icon"><a href="https://www.facebook.com/" target="_blank"><img src="Fotot/facebook.png" alt=""></a>
+                <a href="https://www.Instagram.com" target="_blank" ><img src="Fotot/instagram.png" alt=""></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="Fotot/tik-tok.png" alt=""></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="Fotot/youtube.png" alt=""></a>
+            </p>
+        </div>
+        <div class="minifooter">
+            <h2>LEGAL</h2>
+           <p>Terms and Conditions</p>
+           <p>Cookie Policy</p>
+           <p>Returns Policy</p>
+           <p>Refunds Policy</p>
+        </div>
+        <div class="minifooter">
+            <h2>CUSTOMER SERVICE</h2>
+           <p>Contact Us</p>
+           <p>Shipping & Returns</p>
+           <p>Popular FAQs</p>
+           <p>Find My Order</p>
+        </div>
+        <div class="minifooter">
+            <h2>OUR PRODUCTS</h2>
+           <p>Skincare Solution Finder</p>
+           <p>Why MissSkin</p>
+           <p>Where To Buy</p>
+           <p>MissSkin.com</p>
+        </div>
+    </div>
+
+</footer>    
+<script src="missskin.js"></script> 
+</div>
+</div>
 </body>
 </html>

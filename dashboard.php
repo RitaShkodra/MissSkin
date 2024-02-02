@@ -1,7 +1,9 @@
 <?php 
   require_once 'ProdController.php';
   require_once 'homeController.php';
+  require_once 'database.php';
   include_once 'UserMapper.php';
+  include_once 'Veprimet.php';
   
 
   session_start();
@@ -9,6 +11,10 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
     header("location:home.php");
     exit;
 }
+$db = new Database();
+$link = $db->pdo;
+
+$veprimet = new Veprimet($db->pdo);
 ?>
 
 
@@ -32,23 +38,27 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
     <a href="face.php"><label for="">Face</label></a>
     <a href="hairbody.php"> <label for="">Hair-Body</label></a>
     <a href="home.php" class="MissSkin"><label for="">MissSkin</label></a>
-    <a href="login.php" class="LogIn"> <label for="">Log In</label></a>
+    <a href="Logout.php" class="LogIn"> <label for="">Log Out</label></a>
     <a href="dashboard.php" class="Dashboard active"> <label for="">Dashboard</label></a>
 
     </p>
   </div>
   <div class="DSH">
-    <h1>Your Dashboard</h1>
+    <h1> DASHBOARD</h1>
   </div>
 
-  <h2>Lista e admineve</h2>
-        <table class="bNews">
+  
+   <section>
+   <div class="bNews">
+   <h2 class="dashTitle">Adminët</h2>
+        <table>
             <thead>
                 <tr>
+                    <th>AdminID</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Password</th>
-                    <th colspan="2"><a href="createAdmin.php">Krijo Adminin</a></th>
+                    <th colspan="3"><a href="createAdmin.php">Krijo Adminin</a></th>
                     
                 </tr>
             </thead>
@@ -60,25 +70,35 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
                 foreach ($adminList as $mapper) {
                 ?>
                     <tr>
+                    <td><?php echo $mapper['userID']; ?></td>
                         <td><?php echo $mapper['username']; ?></td>
                         <td><?php echo $mapper['email']; ?></td>
                         <td><?php echo $mapper['userpassword']; ?></td>
                         <td><a href="makeUser.php?id=<?php echo $mapper['userID'];?>">Bëje User</a></td>
+                        <td><a href="editAdmin.php?id=<?php echo $mapper['userID'];?>">Edito</a></td>
                         <td><a href="deleteAdmin.php?id=<?php echo $mapper['userID'];?>">Fshij</a></td>
+                        
                     </tr>
                 <?php
                 }
                 ?>
             </tbody>
         </table>
-        <h2>Lista e produkteve</h2>
-    <table class="bNews">
+   </div>
+   </section>
+       <section>
+       <div class="bNews">
+       <h2 class="dashTitle">Produktet</h2>
+    <table>
         <thead>
             <tr>
+              <th>ProduktID</th>
               <th>Emri i produktit</th>
               <th>Foto e produktit</th>
               <th>Cmimi i produktit</th>
-              <th>Pershkrimi i produktit</th>
+              <th>Pershkrimi i produktit</th>              
+              <th>Lloji</th>              
+
               <th colspan="2" ><a href="createProduct.php">Krijo Produktin</a></th>
             </tr>
         </thead>
@@ -88,23 +108,31 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
           $allProduktet = $p->readData();
           foreach($allProduktet as $produkti): ?>
         <tr>
-          <td><?php echo $produkti['title'];?></td>
-          <td><?php echo $produkti['imgSrc'];?></td>
-          <td><?php echo $produkti['price'];?></td>
-          <td><?php echo $produkti['description'];?></td>
-          <td><a href="editProduct.php?id=<?php echo $produkti['Id'];?>">Edit</a></td>
-          <td><a href="deleteProduct.php?id=<?php echo $produkti['Id'];?>">Delete</a></td>
+        <td><?php echo $produkti['id'];?></td>
+          <td><?php echo $produkti['Emri'];?></td>
+          <td><?php echo $produkti['Foto'];?></td>
+          <td><?php echo $produkti['Cmimi'];?></td>
+          <td><?php echo $produkti['Pershkrimi'];?></td>
+          <td><?php echo $produkti['Lloji'];?></td>
+          <td><a href="editProduct.php?id=<?php echo $produkti['id'];?>">Edito</a></td>
+          <td><a href="deleteProduct.php?id=<?php echo $produkti['id'];?>">Fshij</a></td>
         </tr>  
         <?php endforeach; ?>
       </tbody>
     </table>
-    <h2>Lista e perdorueseve</h2>
-        <table class="content-table">
+       </div>
+       </section>
+     <section>
+     <div class="bNews">
+    <h2 class="dashTitle">Përdoruesit</h2>
+        <table>
             <thead>
                 <tr>
+                    <th>UserID</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Password</th>
+                    <th colspan="2">Përdoruesi</th>
             
                 </tr>
             </thead>
@@ -116,18 +144,57 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
                 foreach ($userList as $user) {
                 ?>
                     <tr>
+                    <td><?php echo $user['userID']; ?></td>
                         <td><?php echo $user['username']; ?></td>
                         <td><?php echo $user['email']; ?></td>
-                        <td><?php echo $user['password']; ?></td>
+                        <td><?php echo $user['userpassword']; ?></td>
                         <td><a href="makeAdmin.php?id=<?php echo $user['userID'];?>">Bëje Admin</a></td>
-                        <td><a href="deleteUser.php?id=<?php echo $user['userID'];?>">Fshij përdoruesin</a></td>
+                        <td><a href="deleteUser.php?id=<?php echo $user['userID'];?>">Fshij </a></td>
                     </tr>
                 <?php
                 }
                 ?>
             </tbody>
         </table>
-  <section>
+  
+    </div>
+     </section>
+      <section>
+        <div class="bNews">
+        <h2 class="dashTitle">Veprimet</h2>
+          <table>
+            <thead>
+              <tr>
+              
+                    <th>AdminID</th>
+                    <th>Veprimi</th>
+                    <th>Koha</th>
+                    <th>Detajet</th>
+              </tr>
+              <tbody>
+                <?php
+                $veprimi = new Veprimet($db->pdo);
+                $veprimet = $veprimi->getVeprimet();
+                foreach ($veprimet as $v) {
+                  echo '<tr>';
+                  echo '<td>' . $v['userID'] . '</td>';
+                  echo '<td>' . $v['Veprimi'] . '</td>';
+                  echo '<td>' . $v['Koha'] . '</td>';
+                  echo '<td>' . $v['Detajet'] . '</td>';
+                  echo '</tr>';
+              }
+                
+                ?>
+
+              </tbody>
+            </thead>
+          
+
+          </table>
+        </div>
+      </section>
+   
+      <section>
     <div class="bNews">
       <h2>Blog News</h2>
       <table>
@@ -371,6 +438,7 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION[
     </div>
 
   </footer>
+  <script src="missskin.js"></script>
 
 
 </body>

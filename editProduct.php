@@ -1,5 +1,6 @@
 <?php 
     require_once 'ProdController.php';
+    require_once 'Veprimet.php';
 
     session_start();
     if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['role'] == 0) || !(isset($_SESSION['loggedin']))){
@@ -8,15 +9,27 @@
     }
 
     $prod = new ProdController;
+    $produktiId = null;
     if(isset($_GET['id'])){
-        $prodId = $_GET['id'];
+        $produktiId = $_GET['id'];
     } 
     
-    $currentProd = $prod ->edit($prodId);
+    $currentProd = $prod ->edit($produktiId);
 
     if(isset($_POST['Submit'])){
-        $prod->update($_POST,$prodId);
+        $prod->update($_POST,$produktiId);
+    $veprimi = 'Edit Product';
+    $userId = $_SESSION['user_id']; 
+    $koha = date('Y-m-d H:i:s');
+    $detajet = ' ProduktID: ' . $produktiId; 
+     
+
+
+    $db = new Database();
+    $veprim = new Veprimet($db->pdo);
+    $veprim->logAction($veprimi, $userId, $koha, $detajet);
     }
+    
 
 ?>
 <!DOCTYPE html>
@@ -52,30 +65,66 @@ if (isset($_SESSION['loggedin'])) {
 ?>
 </div>
 </div>
-<h2><a href="dashboard.php">Kthehu ne Dashboard</a></h2>
-
-    <div class="input">
-    <h1 >Edito produktin</h1>
-    <form method="POST"> 
-    
-    <label for="titulli" >Emri i Produktit</label>
-        <input type="text" name="titulli" value="<?php echo $currentProd['title'];?>">
-      
-        <label for="foto">Foto</label> 
-        <input type="file" name="foto" value="<?php echo $currentProd['imgSrc'];?>">
-        
-       
-        <label for="cmimi">Cmimi</label>
-        <input type="text" name="cmimi" value="<?php echo $currentProd['price'];?>">
-      
-        <label for="pershkrimi">Pershkrimi</label>
-        <input type="text" name="pershkrimi" value="<?php echo $currentProd['description'];?>">
-
-       
-        <input type="Submit" name="Submit" value="Update" class ="update_button">
-    </form>
+<div class="kthehuD">
+<h2 ><a href="dashboard.php"> DASHBOARD</a></h2>
 </div>
 
+    <div class="input createP">
+    <h1 >Edito produktin</h1>
+    <form method="POST" enctype="multipart/form-data"> 
+    
+    <p><label for="titulli" >Emri i Produktit</label></p>
+       <p> <input type="text" name="titulli" value="<?php echo $currentProd['Emri'];?>"></p>
+      
+       <p> <label for="foto">Foto</label> </p>
+        <p><input type="file" name="img" value="<?php echo $currentProd['Foto'];?>"></p>
+        
+       
+        <p><label for="cmimi">Cmimi</label></p>
+        <p><input type="text" name="cmimi" value="<?php echo $currentProd['Cmimi'];?>"></p>
+      
+        <p><label for="pershkrimi">Pershkrimi</label></p>
+        <p><input type="text" name="pershkrimi" value="<?php echo $currentProd['Pershkrimi'];?>"></p>
+
+       
+        <p><input type="Submit" name="Submit" value="Ruaj" class ="update_button"></p>
+    </form>
+</div>
+<footer>
+    <div class="footer">
+      <div class="minifooter">
+        <h1 id="footerTitle">MissSkin</h1>
+        <p id="icon"><a href="https://www.facebook.com/" target="_blank"><img src="Fotot/facebook.png" alt=""></a>
+          <a href="https://www.Instagram.com" target="_blank"><img src="Fotot/instagram.png" alt=""></a>
+          <a href="https://www.tiktok.com" target="_blank"><img src="Fotot/tik-tok.png" alt=""></a>
+          <a href="https://www.youtube.com" target="_blank"><img src="Fotot/youtube.png" alt=""></a>
+        </p>
+      </div>
+      <div class="minifooter">
+        <h2>LEGAL</h2>
+        <p>Terms and Conditions</p>
+        <p>Cookie Policy</p>
+        <p>Returns Policy</p>
+        <p>Refunds Policy</p>
+      </div>
+      <div class="minifooter">
+        <h2>CUSTOMER SERVICE</h2>
+        <p>Contact Us</p>
+        <p>Shipping & Returns</p>
+        <p>Popular FAQs</p>
+        <p>Find My Order</p>
+      </div>
+      <div class="minifooter">
+        <h2>OUR PRODUCTS</h2>
+        <p>Skincare Solution Finder</p>
+        <p>Why MissSkin</p>
+        <p>Where To Buy</p>
+        <p>MissSkin.com</p>
+      </div>
+    </div>
+
+  </footer>
+<script src="missskin.js"></script>
 </body>
 </html>
 <div>

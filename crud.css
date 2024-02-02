@@ -54,10 +54,10 @@ body {
     box-sizing: border-box;
 }
 
-.img {
+/* .img {
     width: 100%;
     box-sizing: border-box;
-}
+} */
 
 .w-40 {
     width: 100%;
@@ -78,7 +78,7 @@ body {
 }
 
 .input input {
-    width: calc(50% - 15px);
+    width: 60%;
     font-size: 16px;
     padding: 15px;
     border-radius: 4px;
@@ -86,6 +86,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .input input:last-child {
@@ -102,16 +103,40 @@ body {
     width: 100%;
 }
 
+.createP p {
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+}
+
+.kthehuD h2 a {
+    text-decoration: none;
+    color: #d94496;
+    font-size: 20px;
+
+}
+
+
+
 .footer {
     display: flex;
     flex-wrap: wrap;
     background-color: #ffb6d9;
     color: white;
-    padding: 10px;
+    height: 350px;
+    margin-right: 0px;
+    padding-top: 10px;
     width: 100%;
 }
 
 .minifooter {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+    width: 22.1%;
+    padding: 2px;
     flex: 1;
     margin: 0 10px;
 }
@@ -165,4 +190,75 @@ body {
     .login_button {
         width: 100%;
     }
+}
+
+@media screen and (max-width:768px) {
+    .nav {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .nav a {
+        display: none;
+    }
+
+    .navicon {
+        display: block;
+    }
+
+    .nav.responsive {
+        position: sticky;
+        width: 100%;
+        left: 0;
+        right: 0;
+
+
+    }
+
+    .nav.responsive p {
+        flex-direction: column;
+
+    }
+
+    .nav.responsive label {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav.responsive a {
+        display: block;
+        text-align: left;
+        margin: unset;
+        color: white;
+        background-color: #ffb6d9;
+        width: 100%;
+
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .minifooter {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: left;
+    }
+
+    .nav .MissSkin {
+        margin-left: 0;
+    }
+
+
+
 }

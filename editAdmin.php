@@ -1,4 +1,4 @@
-edito-admin
+
 
 <?php 
 require_once 'UserMapper.php';
@@ -38,26 +38,91 @@ $admin = new Admin($currentAdmin['email'], $currentAdmin['username'], $currentAd
     <link rel="stylesheet" href="crud.css">
 </head>
 <body>
-<h2><a href="dashboard.php">Kthehu ne Dashboard</a></h2>
-<div class="input">
+<div class="nav">
+
+<p>
+    <div class="navicon">&#9776;</div>
+   <a href="home.php"> <label for="">Home</label></a>
+    <a href="face.php" class="active"><label for="">Face</label></a>
+   <a href="hairbody.php"> <label for="">Hair-Body</label></a>   
+    <a href="home.php" class="MissSkin"><label for="">MissSkin</label></a>
+   
+</p>
+<div class="LogIn">
+<?php 
+if (isset($_SESSION['loggedin'])) { 
+    echo '<a href="Logout.php" class="LogIn">Log Out</a>';
+    
+    if ($_SESSION['role'] == 1) { 
+        echo '<a href="dashboard.php" class="LogIn">Dashboard</a>';
+    }
+} else { 
+    echo '<a href="login.php" class="LogIn">Log In</a>';
+} 
+?>
+</div>
+</div>
+<div class="kthehuD">
+<h2 ><a href="dashboard.php"> DASHBOARD</a></h2>
+</div>
+<div class="input createP">
     <h1>Edito adminin</h1>
 <form method="POST"> 
-    <input type="text" name="register-emailaddress" value="<?php echo $admin->getEmail(); ?>">
-    <span></span>
-        <label for="register-emailaddress">Email</label>
+   
+        <p><label for="register-emailaddress">Email</label></p>
+        <p><input type="text" name="register-emailaddress" value="<?php echo $admin->getEmail(); ?>"></p>
         
 
-    <input type="text" name="register-username" value="<?php echo $admin->getUsername(); ?>">
-    <span></span>
-        <label for="register-username">Username</label>
+   
+    
+        <p><label for="register-username">Username</label></p>
+        <p> <input type="text" name="register-username" value="<?php echo $admin->getUsername(); ?>"></p>
         
+        <p><label for="password">Password</label></p>
+        <p><input type="password" name="register-password" value="<?php echo $admin->getPassword(); ?>"></p>
 
-    <input type="password" name="register-password" value="<?php echo $admin->getPassword(); ?>">
-    <span></span>
-        <label for="password">Password</label>
-    <input type="submit" name="Submit" value="Save" id="button">
+    <p><input type="submit" name="Submit" value="Ruaj" class="update_button"></p>
 </form>
 </div>
+<footer>
+    <div class="footer">
+        <div class="minifooter">
+            <h1 id="footerTitle">MissSkin</h1>
+            <p id="icon"><a href="https://www.facebook.com/" target="_blank"><img src="Fotot/facebook.png" alt=""></a>
+                <a href="https://www.Instagram.com" target="_blank" ><img src="Fotot/instagram.png" alt=""></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="Fotot/tik-tok.png" alt=""></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="Fotot/youtube.png" alt=""></a>
+            </p>
+        </div>
+        <div class="minifooter">
+            <h2>LEGAL</h2>
+           <p>Terms and Conditions</p>
+           <p>Cookie Policy</p>
+           <p>Returns Policy</p>
+           <p>Refunds Policy</p>
+        </div>
+        <div class="minifooter">
+            <h2>CUSTOMER SERVICE</h2>
+           <p>Contact Us</p>
+           <p>Shipping & Returns</p>
+           <p>Popular FAQs</p>
+           <p>Find My Order</p>
+        </div>
+        <div class="minifooter">
+            <h2>OUR PRODUCTS</h2>
+           <p>Skincare Solution Finder</p>
+           <p>Why MissSkin</p>
+           <p>Where To Buy</p>
+           <p>MissSkin.com</p>
+        </div>
+    </div>
+
+</footer>    
+<script src="missskin.js"></script> 
+</div>
+</div>
+</body>
+</html>
 
 
 

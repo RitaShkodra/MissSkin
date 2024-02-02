@@ -3,9 +3,13 @@
 include_once 'admin.php';
 include_once 'simpleUser.php';
 include "ProdController.php"; 
-if (session_status() == PHP_SESSION_NONE) {
-  session_start();
-}
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
+    exit;
+  }
+
+$prodController = new ProdController();
 ?>
 
 <!DOCTYPE html>
@@ -74,57 +78,40 @@ if (session_status() == PHP_SESSION_NONE) {
         <h1>BODY CREAM </h1>
         </div>
         <hr>
-     <div class="bodyC">
+        <div class="bodyC">
         <div class="bodyfoto">
             <img src="Fotot/bodyFoto.webp" alt="">
-    </div>
-        <div class="body_products">
-            <div class="body_row">
-        <?php
-            // Funksioni per shfaqjen e produkteve
-            function displayBodyC($imgSrc, $title, $price, $description) {
-                echo '<div class="body_product">';
-                echo '<img src="' . $imgSrc . '" alt="">';
-                echo '<h1>' . $title . '</h1>';
-                echo '<p>€' . $price . '</p>';
-                echo '<label for="">' . $description . '</label>';
-                echo '</div>';
-            }
-            displayBodyC("Fotot/body1.webp", "Body Cream Pigmentation Glow", "16.99", "Reduces Hyperpigmentation and pimples");
-            displayBodyC("Fotot/body2.webp", "Body Cream 12% Niacinamide", "19.70", "Evens out Rough Texture | Energizes Skin");
-?>
-        </div>
-        <div class="body_row">
-     
-        
-        <?php
+    </div> 
        
-        displayBodyC("Fotot/body3.webp", "Body Cream with Vitamin C", "12.55", "Reduces Pigmentation | Vitamin C");
-        displayBodyC("Fotot/body4.webp", "Body Cream and Extra Glow", "22.50", "Prevents Breakouts & Whiteheads");
-        
-        ?>
-    </div>
-    </div>
-    </div>
+<div class="body_products">
+        <div class="body_row">
+            <?php
+            $bodyProducts = $prodController->readDataByType('bodycream');
+            $count = 0; 
 
-    <div class="bproducts">
-      
-        <?php
-        function displayBody($imgSrc, $title, $price, $description) {
-            echo '<div class="bproduct">';
-            echo '<img src="' . $imgSrc . '" alt="">';
-            echo '<h1>' . $title . '</h1>';
-            echo '<p>€' . $price . '</p>';
-            echo '<label for="">' . $description . '</label>';
-            echo '</div>';
-        }
-        displayBody("Fotot/bathbomb1.webp", "Celestial Serenity Bath Bomb", "6.99", "Pampers Skin | Lightweight & Refreshing");
-        displayBody("Fotot/bodyLoofa1.webp", "Lustrous Luxe Velvet-Touch Exfoliating Glove", "4.75", "Exfoliating Ingredients | Gentle Cleansing");
-        displayBody("Fotot/BodyScrub1.webp", "Velvet Glow Renewal Elixir Exfoliating Body Scrub", "10.99", "Exfoliate Skin | Nourish | Renew & Hydrate");
-        displayBody("Fotot/BodySpray1.webp", "Enchanting Orchid Bloom Hydrating Mist", "12.50", "Energizing Botanical Extracts | Moisturize");
-        
-        ?>
+            foreach ($bodyProducts as $product):
+            
+                $prodController->displayBodyC($product['Foto'], $product['Emri'], $product['Cmimi'], $product['Pershkrimi']);
+                $count++;
+                if ($count ==2) {
+                    echo '</div><div class="body_row">';
+                }
+            endforeach;
+            ?>
+        </div>
     </div>
+</div>
+
+    </div>
+    </div>
+    <div class="bproducts">
+    <?php
+    $faceProducts = $prodController->readDataByType('body');
+    foreach ($faceProducts as $product):
+        $prodController->displayBody($product['Foto'], $product['Emri'], $product['Cmimi'], $product['Pershkrimi']);
+    endforeach;
+    ?>
+</div>
     <div class="bodyimages">
             <img src="Fotot/bathFoto.webp" alt="">
             <img src="Fotot/bathFoto2.webp" alt="">
@@ -141,27 +128,26 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="produktet">
        
         <?php
-        function displayHair($imgSrc, $title, $price, $description) {
-            echo '<div class="produkt">';
-            echo '<img src="' . $imgSrc . '" alt="">';
-            echo '<h1>' . $title . '</h1>';
-            echo '<p>€' . $price . '</p>';
-            echo '<label for="">' . $description . '</label>';
-            echo '</div>';
-        }
-        displayHair("Fotot/HairMask1.webp", "Strawberry Hair Mask", "8.50", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
-        displayHair("Fotot/HairMask2.webp", "Dark Berry Hair Mask", "8.50", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
-        displayHair("Fotot/HairMask3.webp", "Banana Hair Mask", "10.99", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
+       
+        $faceProducts = $prodController->readDataByType('hair');
+        foreach ($faceProducts as $product):
+            $prodController->displayHair($product['Foto'], $product['Emri'], $product['Cmimi'], $product['Pershkrimi']);
+        endforeach;
+        
         ?>
 
         <div class="HairFoto"><img src="Fotot/FotoHair e madhe.webp" alt=""></div>
+
         <?php
-        displayHair("Fotot/hairproduct-4.png", "Orange Hair Mask", "10.99", "Relaxation and Self-Care | Adding Volume | Reducing Frizz");
-        displayHair("Fotot/hairWasher1.png", "MissSkin Hair Shampoo", "14.00", "Optimal pH Balance | Reduces Hyperpigmentation | All Skin");
-        displayHair("Fotot/HairProduct6.png", "MissSkin Hair Oil", "11.20", "Improved Scalp Health | Prevention of Hair Loss | Shine");
-        
-        ?>
-    </div>
+       
+       $faceProducts = $prodController->readDataByType('hairP');
+       foreach ($faceProducts as $product):
+           $prodController->displayHair($product['Foto'], $product['Emri'], $product['Cmimi'], $product['Pershkrimi']);
+       endforeach;
+       
+       ?>
+        </div>
+
 
 
 

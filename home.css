@@ -1,20 +1,21 @@
-@font-face{
+@font-face {
     font-family: myFont;
     src: url(Garet-Book.ttf);
 }
-*{
+
+* {
     font-family: myFont;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-.nav{
+.nav {
     display: flex;
     align-items: center;
     background-color: #ffb6d9;
@@ -24,53 +25,58 @@ body{
     font-size: 20px;
     z-index: 1000;
     position: sticky;
-    top: 0px; 
+    top: 0px;
     width: 100%;
 
 }
 
-.navicon{
+.navicon {
     font-size: 20px;
     cursor: pointer;
     display: none;
 }
-.nav a{
+
+.nav a {
     color: white;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
 }
-.nav a:hover{
+
+.nav a:hover {
     color: #d94496;
     font-weight: bold;
 }
 
-.nav .LogIn{
+.nav .LogIn {
     margin-left: auto;
     margin-right: 15px;
 }
 
-.nav .MissSkin{
+.nav .MissSkin {
     margin-left: 30%;
 }
-.MissSkin{
+
+.MissSkin {
     font-weight: bold;
-    
-}
-.nav .active{
-    color: #d94496;
-    font-weight: bold;
-    
-    
+
 }
 
-.img_mainbox{
+.nav .active {
+    color: #d94496;
+    font-weight: bold;
+
+
+}
+
+.img_mainbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px;
 }
-.img_mainbox .imgbox{
+
+.img_mainbox .imgbox {
     width: 20%;
     height: 300px;
     box-sizing: border-box;
@@ -78,22 +84,24 @@ body{
 }
 
 
-.imgbox a img{
+.imgbox a img {
     width: 100%;
     height: 100%;
 }
-.imgbox:hover{
-   transform: scale(1.2);
-   transition: transform 0.3s ease;
+
+.imgbox:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
 }
-.imgbox label{
+
+.imgbox label {
     margin-left: 95px;
     font-size: 20px;
     font-weight: bold;
     color: #d94496;
 }
 
-.quote{
+.quote {
     display: flex;
     flex-wrap: wrap;
     margin: 80px;
@@ -105,36 +113,37 @@ body{
     font-weight: bold;
 }
 
-.blog_mainbox{
+.blog_mainbox {
     display: flex;
     flex-wrap: wrap;
 }
-.leftbox img{
+
+.leftbox img {
     margin: 30px;
     width: 700px;
     height: 350px;
 }
 
-.blogtext{
+.blogtext {
     width: 500px;
     height: 200px;
     display: block;
     position: relative;
-    transform: translate(-200px,90px);
+    transform: translate(-200px, 90px);
     justify-content: center;
     background-color: white;
     box-shadow: 5px 5px 5px;
     padding: 10px;
-    
+
 }
 
- .blogtext:hover{
+.blogtext:hover {
     transform: scale(1.2);
     transition: transform 0.6s ease;
-    
+
 }
 
-.footer{
+.footer {
     display: flex;
     flex-wrap: wrap;
     background-color: #ffb6d9;
@@ -144,7 +153,8 @@ body{
     padding-top: 10px;
     width: 100%;
 }
-.minifooter{
+
+.minifooter {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -153,28 +163,30 @@ body{
     width: 22.1%;
     padding: 2px;
 }
-.minifooter p{
+
+.minifooter p {
     margin-bottom: 3px;
 }
 
- .minifooter #footerTitle{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+.minifooter #footerTitle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.minifooter a img{
+.minifooter a img {
     width: 30px;
     height: 30px;
-    
+
 }
-.minifooter #icon{
+
+.minifooter #icon {
     text-align: center;
 }
 
- 
 
-.registerbox{
+
+.registerbox {
     width: 90%;
     overflow: hidden;
     margin-top: 30px;
@@ -187,9 +199,10 @@ body{
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    
+
 }
-.faqja{
+
+.faqja {
     width: 90%;
     overflow: hidden;
     margin-top: 30px;
@@ -202,45 +215,50 @@ body{
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-  
-  }
 
-.img img{
+}
+
+.img img {
     width: 100%;
     box-sizing: border-box;
-    
+
 }
-.w-40{
-    width:40%;
+
+.w-40 {
+    width: 40%;
     box-sizing: border-box;
 }
 
-.input h1{
+.input h1 {
     text-align: center;
     margin-top: unset;
     margin-bottom: 20px;
 }
-.input{
-    
+
+.input {
+
     margin: 40px;
     margin-left: 120px;
     box-sizing: border-box;
- 
-    
+
+
 }
-.inputr{
+
+.inputr {
     width: 60%;
     margin: 40px;
     margin-left: 120px;
     box-sizing: border-box;
 
 }
-.inputr h1{
+
+.inputr h1 {
     text-align: center;
     margin-top: unset;
     margin-bottom: 20px;
 }
-.input input{
+
+.input input {
     width: 100%;
     font-size: 16px;
     padding: 20px;
@@ -248,9 +266,10 @@ body{
     border: 1px solid #ffb6d9;
     text-align: center;
     margin-bottom: 20px;
-   
+
 }
-.inputr input{
+
+.inputr input {
     width: 100%;
     font-size: 16px;
     padding: 20px;
@@ -258,30 +277,36 @@ body{
     border: 1px solid #ffb6d9;
     text-align: center;
     margin-bottom: 20px;
-   
+
 }
-.register_button{
+
+.register_button {
     background-color: #d94496;
     color: white;
-    
+
 }
+
 .signup_link {
     text-align: center;
-    
+
 }
-.signup_link a{
+
+.signup_link a {
     color: #d94496;
 }
-.login_button{
-  background-color: #d94496;
-  color: white;
-  
+
+.login_button {
+    background-color: #d94496;
+    color: white;
+
 }
-.oferta img{
+
+.oferta img {
     box-sizing: border-box;
     width: 100%;
 }
-.blog{
+
+.blog {
     font-size: 50px;
     text-align: center;
     color: #d94496;
@@ -289,41 +314,47 @@ body{
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.oferta-face img{
+
+.oferta-face img {
     box-sizing: border-box;
     width: 100%;
     height: 700px;
     margin-bottom: 20px;
 }
-.products{
+
+.products {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
 }
-.product{
+
+.product {
     display: flex;
     flex-wrap: wrap;
     width: 400px;
-    height:450px ;
+    height: 450px;
     padding: 20px;
     margin: 10px;
     justify-content: center;
 
-    
+
 }
-.product h1{
+
+.product h1 {
     font-size: 15px;
     text-align: center;
 }
-.products .product img{
+
+.products .product img {
     width: 350px;
     height: 350px;
     align-items: center;
 
 
 }
- .product p{
+
+.product p {
     text-align: center;
     font-weight: bold;
     color: #d94496;
@@ -331,45 +362,50 @@ body{
     margin-bottom: 10px;
     margin-left: 10px;
 }
-.products .product label{
+
+.products .product label {
     font-size: 12px;
     color: rgb(178, 174, 174);
 }
-.serums{
+
+.serums {
     display: flex;
     /* flex-wrap: wrap; */
     flex-direction: row;
     box-sizing: border-box;
     margin-top: 40px;
- 
+
 }
-.serumfoto{
-    width:40%;
+
+.serumfoto {
+    width: 40%;
     height: 600px;
     margin-bottom: 300px;
     margin-left: 100px;
     margin-top: 30px;
-  
+
 }
-.serum_products{
+
+.serum_products {
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap; */
     justify-content: center;
     padding: 20px;
     margin-left: 20px;
-   margin-top: 0px;
+    margin-top: 0px;
     overflow: hidden;
 
 }
 
-.serum_row{
+.serum_row {
 
     display: flex;
     flex-direction: row;
-    
+
 }
-.serum_product{
+
+.serum_product {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -380,103 +416,120 @@ body{
     margin-right: 20px;
 
 }
-.serum_product img{
+
+.serum_product img {
     width: 200px;
     height: 200px;
 }
-.serum_product h1{
+
+.serum_product h1 {
     font-size: 15px;
     text-align: center;
 
 }
-.serum_product label{
+
+.serum_product label {
     text-align: center;
     font-size: 12px;
     color: rgb(178, 174, 174);
 }
-.serum_product p{
+
+.serum_product p {
     color: #d94496;
     font-weight: bold;
 }
-.sociallinks{
+
+.sociallinks {
     text-align: center;
-   margin-top: 20px;
-   margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-.sociallinks h1{
+
+.sociallinks h1 {
     margin-top: 60px;
     margin-bottom: 50px;
 }
-.sociallinks p{
+
+.sociallinks p {
     margin-top: 60px;
     margin-bottom: 50px;
     color: #d94496;
     font-weight: bold;
     font-size: 30px;
 }
-.sociallinks img{
+
+.sociallinks img {
     width: 30px;
     height: 30px;
 }
-.sociallinks button{
+
+.sociallinks button {
     background-color: #d94496;
     border: #ffb6d9;
     color: white;
     font-size: 30px;
     margin-left: 40px;
 }
-.faceserum{
+
+.faceserum {
     text-align: center;
     margin-top: 60px;
     margin-bottom: 60px;
 }
-hr{
+
+hr {
     margin-top: 30px;
 }
 
-.beauty{
+.beauty {
     text-align: center;
     margin-left: 250px;
     margin-right: 250px;
 }
-.beauty p{
+
+.beauty p {
     font-size: 17px;
-    
-    
+
+
 }
-.p1{
+
+.p1 {
     color: black;
     font-weight: bold;
     font-size: 18px;
 }
-.beauty h1{
+
+.beauty h1 {
     color: #d94496;
     margin-top: 40px;
-    
+
 }
-.sign-button{
+
+.sign-button {
     background-color: #d94496;
     color: white;
     border: #ffb6d9;
     font-size: 25px;
     border-radius: 8px;
     margin-bottom: 40px;
-    
+
 }
 
-.bodycream h1{
+.bodycream h1 {
     font-size: 30px;
     text-align: center;
     padding: 30px;
 }
-.bodyC{
+
+.bodyC {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
- 
+
 }
-.bodyfoto img{
-    width:95%;
+
+.bodyfoto img {
+    width: 95%;
     height: 700px;
     margin-bottom: 200px;
     margin-left: 40px;
@@ -485,26 +538,27 @@ hr{
 }
 
 
-.body_products{
+.body_products {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
     margin-left: 20px;
-   margin-top: 0px;
+    margin-top: 0px;
     overflow: hidden;
-    
+
 
 }
 
-.body_row{
+.body_row {
 
     display: flex;
     flex-direction: row;
-   
-    
+
+
 }
-.body_product{
+
+.body_product {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -515,35 +569,40 @@ hr{
     margin-right: 5px;
     margin-bottom: 50px;
     margin-top: -50px;
-    
+
 
 }
-.body_product img{
+
+.body_product img {
     width: 175px;
     height: 175px;
 }
-.body_product h1{
+
+.body_product h1 {
     font-size: 15px;
     text-align: center;
 
 }
-.body_product label{
+
+.body_product label {
     text-align: center;
     font-size: 12px;
     color: rgb(178, 174, 174);
 }
-.body_product p{
+
+.body_product p {
     color: #d94496;
     font-weight: bold;
 }
 
-.bproducts{
+.bproducts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 0;
 }
-.bproduct{
+
+.bproduct {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -554,18 +613,21 @@ hr{
     margin-top: -100px;
     margin-bottom: 90px;
 }
-.bproduct h1{
+
+.bproduct h1 {
     font-size: 15px;
     text-align: center;
 }
-.bproduct img{
+
+.bproduct img {
     width: 300px;
     height: 250px;
     align-items: center;
 
 
 }
- .bproduct p{
+
+.bproduct p {
     text-align: center;
     font-weight: bold;
     color: #d94496;
@@ -573,347 +635,419 @@ hr{
     margin-bottom: 10px;
     margin-left: 10px;
 }
-.bproduct label{
+
+.bproduct label {
     font-size: 12px;
     color: rgb(178, 174, 174);
 }
-.bodyimages{
+
+.bodyimages {
     display: flex;
-   margin-top: 50px;
-   margin-bottom: 50px;
-   justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: space-evenly;
 }
-.bodyimages img{
+
+.bodyimages img {
     width: 43.2%;
     height: 600px;
 }
-.hair h1{
+
+.hair h1 {
     margin-top: 20px;
     font-size: 30px;
     text-align: center;
     padding: 30px;
 
-    
+
+}
+
+.produktet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.produkt {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 450px;
+    padding: 20px;
+    margin: 10px;
+    justify-content: center;
+    margin-bottom: 60px;
+
+
+}
+
+.produkt h1 {
+    font-size: 15px;
+    text-align: center;
+}
+
+.produktet .produkt img {
+    width: 350px;
+    height: 350px;
+    align-items: center;
+
+
+}
+
+.produkt p {
+    text-align: center;
+    font-weight: bold;
+    color: #d94496;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.produktet .produkt label {
+    font-size: 12px;
+    color: rgb(178, 174, 174);
+}
+
+.HairFoto img {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 40px;
+    height: 400px;
+}
+
+
+.saleOffers h1 {
+    font-size: 30px;
+    text-align: center;
+    padding: 30px;
+
+}
+
+@media screen and (max-width:768px) {
+    .nav {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+
     }
-    .produktet{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 20px;
+
+    .nav a {
+        display: none;
     }
-    .produkt{
-        display: flex;
-        flex-wrap: wrap;
-        width: 400px;
-        height:450px ;
-        padding: 20px;
-        margin: 10px;
-        justify-content: center;
-        margin-bottom: 60px;
-    
-        
-    }
-    .produkt h1{
-        font-size: 15px;
-        text-align: center;
-    }
-    .produktet .produkt img{
-        width: 350px;
-        height: 350px;
-        align-items: center;
-    
-    
-    }
-     .produkt p{
-        text-align: center;
-        font-weight: bold;
-        color: #d94496;
+
+    .navicon {
         display: block;
-        margin-bottom: 10px;
-        margin-left: 10px;
     }
-    .produktet .produkt label{
-        font-size: 12px;
-        color: rgb(178, 174, 174);
-    }
-    .HairFoto img{
-        box-sizing: border-box;
+
+    .nav.responsive {
+        position: sticky;
         width: 100%;
-        margin-top: 40px;
-        height: 400px;
+        left: 0;
+        right: 0;
+
+
     }
 
+    .nav.responsive p {
+        flex-direction: column;
 
-    .saleOffers h1{
-        font-size: 30px;
+    }
+
+    .nav.responsive label {
+        display: block;
+        width: 100%;
         text-align: center;
-        padding: 30px;
+    }
+
+    .nav.responsive a {
+        display: block;
+        text-align: left;
+        margin: unset;
+        color: white;
+        background-color: #ffb6d9;
+        width: 100%;
 
     }
-    @media screen and (max-width:768px) {
-        .nav{
-            font-size: 16px;
-            flex-direction: column;
-            align-items: flex-start;
-            
-        }
-        .nav a{
-            display: none;
-        }
-        .navicon{
-            display: block;
-        }
-        .nav.responsive{
-            position: sticky;
-            width: 100%;
-            left: 0;
-            right: 0;
-            
-           
-        }
-        .nav.responsive p{
-            flex-direction: column;
-            
-        }
-        
-        .nav.responsive label{
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        .nav.responsive a{
-            display: block;
-            text-align: left;
-            margin: unset;
-            color: white;
-            background-color: #ffb6d9;
-            width: 100%;
 
-        }
-        
-   
-        .img_mainbox{
-            width: 100%;
-        }
-        .img_mainbox .imgbox{
-            width: 48%;
-            margin-top: 10px;
-        }
-        
-        .imgbox label{
-            margin-left: 0;
-            text-align: center;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .quote{
-            font-size: 20px;
-            text-align: center;
-        }
-        .oferta{
-            width: 100%;
-        }
-        .leftbox img{
-            margin-left: 0;
-            width: 100%;
-            height: auto;
-        }
-        .blogtext{
-            width: 100%;
-            height: auto;
-            transform: translate(0,0);
-            font-size: 16px;
-        }
-        .footer{
-            flex-direction: column;
-            align-items: center;
-        }
-        .minifooter{
-            width: 100%;
-            margin-right: 0;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .serums{
-            flex-direction: column;
-        }
-        .serumfoto{
-            width: 70%;
-            margin-left: 0;
 
-        }
-        .serum_row{
-            flex-direction: column;
-            
-        }
-        .serum_product{
-         width: 400px;
-         height: 450px;
-         margin-left: -45px;   
-        }
-        .serum_product img{
+    .img_mainbox {
+        width: 100%;
+    }
+
+    .img_mainbox .imgbox {
+        width: 48%;
+        margin-top: 10px;
+    }
+
+    .imgbox label {
+        margin-left: 0;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .quote {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .oferta {
+        width: 100%;
+    }
+
+    .leftbox img {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .blogtext {
+        width: 100%;
+        height: auto;
+        transform: translate(0, 0);
+        font-size: 16px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .minifooter {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .serums {
+        flex-direction: column;
+    }
+
+    .serumfoto {
+        width: 70%;
+        margin-left: 0;
+
+    }
+
+    .serum_row {
+        flex-direction: column;
+
+    }
+
+    .serum_product {
+        width: 400px;
+        height: 450px;
+        margin-left: -45px;
+    }
+
+    .serum_product img {
         width: 350px;
         height: 350px;
-        }
-       .beauty{
+    }
+
+    .beauty {
         text-align: left;
         margin-left: 10px;
         font-size: 16px;
         width: 100%;
-       }
-       .bodyC{
+    }
+
+    .bodyC {
         flex-direction: column;
-       }
-       .bodyfoto{
+    }
+
+    .bodyfoto {
         width: 100%;
-        margin-left:-28px;
-       }
-       .body_row{
+        margin-left: -28px;
+    }
+
+    .body_row {
         flex-direction: column;
-       }
-       .body_product{
+    }
+
+    .body_product {
         width: 400px;
         height: 450px;
-        margin-left: -45px; 
-       }
-       .body_product img{
+        margin-left: -45px;
+    }
+
+    .body_product img {
         width: 350px;
         height: 350px;
-       }
-    .bproduct{
+    }
+
+    .bproduct {
         width: 400px;
         height: 450px;
-        margin-left: 0px; 
-        
+        margin-left: 0px;
+
     }
-    .bproduct img{
+
+    .bproduct img {
         width: 350px;
-        height: 350px; 
+        height: 350px;
     }
-    .bodyimages{
+
+    .bodyimages {
         margin-top: 20px;
     }
-    .bodyimages img{
+
+    .bodyimages img {
         height: 400px;
     }
-   
-    }   
+
+}
 
 
-    #slideshow {
+#slideshow {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    height: 700px;
+    margin-top: 20px;
+    margin-bottom: -110px;
+
+}
+
+#slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav {
+        flex-direction: column;
+        align-items: left;
+    }
+
+    .nav .MissSkin {
+        margin-left: 0;
+    }
+
+    .faqja,
+    .registerbox {
+        margin: 15px;
         width: 100%;
-        overflow: hidden;
-        text-align: center;
-        height: 700px;
-        margin-top: 20px;
-        margin-bottom: -110px;
-        
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        height: auto;
     }
 
-    #slider {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .slide {
-        min-width: 100%;
-        box-sizing: border-box;
-    }
-    @media screen and (max-width: 768px) {
-    
-        .nav {
-            flex-direction: column;
-            align-items: left;
-        }
-    
-        .nav .MissSkin {
-            margin-left: 0;
-        }
-    
-        .faqja, .registerbox{
-            margin: 15px;
-            width: 100%;
-            flex-direction: row-reverse;
-            align-items: flex-start;
-            height: auto;
-        }
-        .faqja img{
-            width: 100%;
-            
-            
-        }
-        .registerbox img{
-            width: 100%;
-        }
-    
-        .input, .inputr {
-            width: 90%;
-            max-width: none;
-            margin: 15px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: left;
-           
-        }
-    
-        .input input, .inputr input {
-            width: 100%;
-           
-        }
-        
-    
-        .register_button, .login_button {
-            width: 100%;
-            
-        }
-       
-      
-    }
-
-      .DSH h1{
-        margin-top: 50px ;
-        margin-bottom: 20px;
-        margin-left: 50px;
-        margin-right: 50px;
-        text-align: center;
-        background-color: #333;
-        color: white;
-      }
-      
-
-    section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding: 2em;
-      }
-  
-      .bNews {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 1em;
-        flex: 1;
-        margin: 0 1em 1em 1em;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);      }
-  
-      table {
+    .faqja img {
         width: 100%;
-        border-collapse: collapse;
-        margin-top: 1em;
-      }
-  
-      th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
+
+
+    }
+
+    .registerbox img {
+        width: 100%;
+    }
+
+    .input,
+    .inputr {
+        width: 90%;
+        max-width: none;
+        margin: 15px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: left;
-      }
-  
-      th {
-        background-color: #333;
-        color: white;
-      }
-  
-        
 
+    }
+
+    .input input,
+    .inputr input {
+        width: 100%;
+
+    }
+
+
+    .register_button,
+    .login_button {
+        width: 100%;
+
+    }
+
+    .bNews table {
+        font-size: 12px;
+    }
+
+
+}
+
+.DSH h1 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    /* background-color: #333; */
+    color: #d94496;
+    font-size: 35px;
+}
+
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em;
+    margin-top: 1em;
+}
+
+.bNews {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    flex: 1;
+    margin: 0 1em 1em 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    overflow-x: auto;
+
+}
+
+.bNews table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    max-width: 100%;
+
+
+}
+
+.bNews td,
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.bNews th {
+    background-color: #d94496;
+    color: white;
+}
+
+.dashTitle {
+    text-align: center;
+}
+
+.bNews a {
+    text-decoration: none;
+    color: white;
+}
+
+.bNews td a {
+    color: #333;
+}

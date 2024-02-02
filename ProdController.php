@@ -8,33 +8,83 @@ class ProdController
 
     public function __construct()
     {
-        $this->db = new Database();
+        $this->db = new Database(); 
     }
 
     public function readData()
     {
         $query = $this->db->pdo->query('SELECT * FROM product');
 
-        return $query->fetchAll();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+   
 
     public function insert($request)
     {
-        $request['img'] = './Fotot/' . $request['img'];
-        $query = $this->db->pdo->prepare('INSERT INTO produkti (h1, p, label) 
-            VALUES(:h1, :p, :label)');
-        $query->bindParam(':h1', $request['h1']);
-        $query->bindParam(':img', $request['img']);
-        $query->bindParam(':p', $request['p']);
-        $query->bindParam(':label', $request['label']);
+        $uploadedFile = $_FILES['img']['tmp_name'];
+    $targetFilePath = './Fotot/' . basename($_FILES['img']['name']);
+    $productType = $_POST['productType'];
+
+        $query = $this->db->pdo->prepare('INSERT INTO product (Emri, Foto, Cmimi, Pershkrimi, Lloji) VALUES(:Emri, :Foto, :Cmimi, :Pershkrimi, :Lloji)');
+        if(move_uploaded_file($uploadedFile, $targetFilePath)){
+            $query->bindParam(':Emri', $request['titulli']);
+        $query->bindParam(':Foto', $targetFilePath);
+        $query->bindParam(':Cmimi', $request['cmimi']);
+        $query->bindParam(':Pershkrimi', $request['pershkrimi']);
+        $query->bindParam(':Lloji', $productType);
         $query->execute();
 
+        }
+    
+    
+        $this->productType($request['img'], $request['titulli'], $request['cmimi'], $request['pershkrimi'], $productType);
+
+        
+
+       
+    
         return header('Location: dashboard.php');
+       
+
+       
+
+
+       
+      
     }
+    private function productType($img, $titulli, $cmimi, $pershkrimi, $productType)
+    {
+        switch ($productType) {
+            case 'face':
+                $this->displayProduct($img, $titulli, $cmimi, $pershkrimi);
+                break;
+            case 'serum':
+                $this->displaySerum($img, $titulli, $cmimi, $pershkrimi);
+                break;
+            case 'bodycream':
+                $this->displayBodyC($img, $titulli, $cmimi, $pershkrimi);
+                break;
+            case 'body':
+                $this->displayBody($img, $titulli, $cmimi, $pershkrimi);
+                break;
+            case 'hair':
+                $this->displayHair($img, $titulli, $cmimi, $pershkrimi);
+                break;
+            }
+        }
+
+        public function readDataByType($productType)
+{
+    $query = $this->db->pdo->prepare('SELECT * FROM product WHERE Lloji = :productType');
+    $query->bindParam(':productType', $productType, PDO::PARAM_STR);
+    $query->execute();
+
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}
 
     public function edit($id)
     {
-        $query = $this->db->pdo->prepare('SELECT * FROM produkti WHERE id = :id');
+        $query = $this->db->pdo->prepare('SELECT * FROM product WHERE id = :id');
         $query->bindParam(':id', $id);
         $query->execute();
 
@@ -42,57 +92,65 @@ class ProdController
     }
 
     public function update($request, $id)
-    {
-        $request['img'] = './images/' . $request['img'];
-        $query = $this->db->pdo->prepare('UPDATE produkti SET h1 = :h1, img = :img, p = :p, label = :label WHERE id = :id');
-        $query->bindParam(':h1', $request['h1']);
-        $query->bindParam(':img', $request['img']);
-        $query->bindParam(':p', $request['p']);
-        $query->bindParam(':label', $request['label']);
-        $query->bindParam(':id', $id);
-        $query->execute();
+{
+    $request['img'] = './Fotot/' . $request['img'];
+    $query = $this->db->pdo->prepare('UPDATE product SET Emri = :Emri, Foto = :Foto, Cmimi = :Cmimi, Pershkrimi = :Pershkrimi WHERE id = :id');
+    $query->bindParam(':Emri', $request['titulli']);
+    $query->bindParam(':Foto', $request['img']);
+    $query->bindParam(':Cmimi', $request['cmimi']);
+    $query->bindParam(':Pershkrimi', $request['pershkrimi']);
+    $query->bindParam(':id', $id);
+    $query->execute();
 
-        return header('Location: dashboard.php');
-    }
+    return header('Location: dashboard.php');
+}
 
     public function delete($id)
     {
-        $query = $this->db->pdo->prepare('DELETE FROM produkti WHERE id = :id');
+        $query = $this->db->pdo->prepare('DELETE FROM product WHERE id = :id');
         $query->bindParam(':id', $id);
         $query->execute();
 
         return header('Location: dashboard.php');
     }
-    function displayBodyC($imgSrc, $title, $price, $description) {
+    function displayBodyC($img, $titulli, $cmimi, $pershkrimi) {
         echo '<div class="body_product">';
-        echo '<img src="' . $imgSrc . '" alt="">';
-        echo '<h1>' . $title . '</h1>';
-        echo '<p>€' . $price . '</p>';
-        echo '<label for="">' . $description . '</label>';
+        echo '<img src="' . $img . '" alt="">';
+        echo '<h1>' . $titulli . '</h1>';
+        echo '<p>€' . $cmimi . '</p>';
+        echo '<label for="">' . $pershkrimi . '</label>';
         echo '</div>';
     }
-    function displayBody($imgSrc, $title, $price, $description) {
+    function displayBody($img, $titulli, $cmimi, $pershkrimi) {
         echo '<div class="bproduct">';
-        echo '<img src="' . $imgSrc . '" alt="">';
-        echo '<h1>' . $title . '</h1>';
-        echo '<p>€' . $price . '</p>';
-        echo '<label for="">' . $description . '</label>';
+        echo '<img src="' . $img . '" alt="">';
+        echo '<h1>' . $titulli . '</h1>';
+        echo '<p>€' . $cmimi . '</p>';
+        echo '<label for="">' . $pershkrimi . '</label>';
         echo '</div>';
     }
-    function displayProduct($imgSrc, $title, $price, $description) {
+    function displayProduct($img, $titulli, $cmimi, $pershkrimi) {
         echo '<div class="product">';
-        echo '<img src="' . $imgSrc . '" alt="">';
-        echo '<h1>' . $title . '</h1>';
-        echo '<p>€' . $price . '</p>';
-        echo '<label for="">' . $description . '</label>';
+        echo '<img src="' . $img . '" alt="">';
+        echo '<h1>' . $titulli . '</h1>';
+        echo '<p>€' . $cmimi . '</p>';
+        echo '<label for="">' . $pershkrimi . '</label>';
         echo '</div>';
     }
-    function displaySerum($imgSrc, $title, $price, $description) {
+    function displaySerum($img, $titulli, $cmimi, $pershkrimi) {
         echo '<div class="serum_product">';
-        echo '<img src="' . $imgSrc . '" alt="">';
-        echo '<h1>' . $title . '</h1>';
-        echo '<p>€' . $price . '</p>';
-        echo '<label for="">' . $description . '</label>';
+        echo '<img src="' . $img . '" alt="">';
+        echo '<h1>' . $titulli . '</h1>';
+        echo '<p>€' . $cmimi . '</p>';
+        echo '<label for="">' . $pershkrimi . '</label>';
+        echo '</div>';
+    }
+    function displayHair($img, $titulli, $cmimi, $pershkrimi){
+        echo '<div class="produkt">';
+        echo '<img src="' . $img . '" alt="">';
+        echo '<h1>' . $titulli . '</h1>';
+        echo '<p>€' . $cmimi . '</p>';
+        echo '<label for="">' . $pershkrimi . '</label>';
         echo '</div>';
     }
 }

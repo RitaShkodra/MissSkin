@@ -1,5 +1,6 @@
 <?php 
     require_once 'ProdController.php';
+    require_once 'Veprimet.php';
 
     session_start();
     if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['role'] == 0) || !(isset($_SESSION['loggedin']))){
@@ -8,11 +9,29 @@
     }
 
     $produkti = new ProdController;
+    
     if(isset($_POST['Submit'])){
-        $produkti->insert($_POST);
-    }
+    $produkti->insert($_POST);
+    
+  
 
+    // Log the action
+    $veprimi = 'Create Product';
+    $userId = $_SESSION['user_id']; 
+    $koha = date('Y-m-d H:i:s');
+    
+    
+
+
+    $detajet = ' Emri i Produktit: ' . $_POST['titulli'];
+    $db = new Database();
+
+    $veprim = new Veprimet($db->pdo);
+    $veprim->logAction($veprimi, $userId, $koha, $detajet);
+}
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -48,28 +67,83 @@ if (isset($_SESSION['loggedin'])) {
 ?>
 </div>
 </div>
-<h2><a href="dashboard.php">Kthehu ne Dashboard</a></h2>
+<div class="kthehuD">
+<h2 ><a href="dashboard.php"> DASHBOARD</a></h2>
+</div>
 
-    <div class="input">
-    <h1 >Kriho produktin</h1>
-    <form method="POST"> 
-    <label for="titulli" >Emri i Produktit</label>
-        <input type="text" name="titulli" value="">
+    <div class="input createP">
+    <h1 >Krijo produktin</h1>
+    <form method="POST" action="" id ="createProduct" enctype="multipart/form-data"> 
+    <p><label for="titulli" >Emri i Produktit</label></p>
+       <p> <input type="text" name="titulli" value=""></p>
       
-        <label for="foto">Foto</label> 
-        <input type="file" name="foto" value="">
+        <p><label for="foto">Foto</label> </p>
+        <p><input type="file" name="img" required></p>
         
        
-        <label for="cmimi">Cmimi</label>
-        <input type="text" name="cmimi" value="">
+        <p><label for="cmimi">Cmimi</label></p>
+        <p><input type="text" name="cmimi" value=""></p>
       
-        <label for="pershkrimi">Pershkrimi</label>
-        <input type="text" name="pershkrimi" value="">
+        <p><label for="pershkrimi">Përshkrimi</label></p>
+        <p><input type="text" name="pershkrimi" value=""></p>
+
+        <p>
+            <label for="product_type">Zgjedh llojin e produktit:</label>
+            <select name="productType" id ="productType">
+                <option value="face">Face</option>
+                <option value="faceP">FaceP</option>
+                <option value="serum">Serum</option>
+                <option value="bodycream">BodyCream</option>
+                <option value="body">Body</option>
+                <option value="hair">Hair</option>
+                <option value="hairP">HairP</option>
+                <!-- Add more options for other product types -->
+            </select>
+           
+        </p>
 
        
-        <input type="Submit" name="Submit" value="Update" class ="update_button">
+        <p><input type="Submit" name="Submit" value="Krijo" class ="update_button"></p>
     </form>
 </div>
 
+
+<footer>
+    <div class="footer">
+        <div class="minifooter">
+            <h1 id="footerTitle">MissSkin</h1>
+            <p id="icon"><a href="https://www.facebook.com/" target="_blank"><img src="Fotot/facebook.png" alt=""></a>
+                <a href="https://www.Instagram.com" target="_blank" ><img src="Fotot/instagram.png" alt=""></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="Fotot/tik-tok.png" alt=""></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="Fotot/youtube.png" alt=""></a>
+            </p>
+        </div>
+        <div class="minifooter">
+            <h2>LEGAL</h2>
+           <p>Terms and Conditions</p>
+           <p>Cookie Policy</p>
+           <p>Returns Policy</p>
+           <p>Refunds Policy</p>
+        </div>
+        <div class="minifooter">
+            <h2>CUSTOMER SERVICE</h2>
+           <p>Contact Us</p>
+           <p>Shipping & Returns</p>
+           <p>Popular FAQs</p>
+           <p>Find My Order</p>
+        </div>
+        <div class="minifooter">
+            <h2>OUR PRODUCTS</h2>
+           <p>Skincare Solution Finder</p>
+           <p>Why MissSkin</p>
+           <p>Where To Buy</p>
+           <p>MissSkin.com</p>
+        </div>
+    </div>
+
+</footer>    
+<script src="missskin.js"></script> 
+</div>
+</div>
 </body>
 </html>
