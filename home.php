@@ -53,14 +53,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
     $controller = new homeController();
     $products = $controller->readData();
-    // foreach ($products as $product) {
-    //     echo '<div class="divs">';
-    //     echo '<a href="products.php">';
-    //     echo '<img src="' . $product['home_image'] . '" class="r">';
-    //     echo '<p class="tekstet">' . $product['home_emri'] . '</p>';
-    //     echo '</a>';
-    //     echo '</div>';
-    // }
+    
     ?>
     
         <div class="img_mainbox">
@@ -161,21 +154,6 @@ if (session_status() == PHP_SESSION_NONE) {
     <script src="missskin.js"></script>
 
 
-    <!-- <?php 
-            $counter = 0;
-            foreach ($products as $product):
-            if($counter == 4) break;
-                    ?>
-        <div class="divs">
-            <a href="products.php">
-                <img src="<?php echo $product['home_image']; ?>" class="r">
-                <p class="tekstet"><?php echo $product['home_emri']; ?></p>
-            </a>
-        </div>
-        <?php 
-            $counter++;
-            endforeach; 
-        ?> -->
     
 </body>
 </html>

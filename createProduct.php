@@ -15,7 +15,6 @@
     
   
 
-    // Log the action
     $veprimi = 'Create Product';
     $userId = $_SESSION['user_id']; 
     $koha = date('Y-m-d H:i:s');
@@ -97,7 +96,6 @@ if (isset($_SESSION['loggedin'])) {
                 <option value="body">Body</option>
                 <option value="hair">Hair</option>
                 <option value="hairP">HairP</option>
-                <!-- Add more options for other product types -->
             </select>
            
         </p>

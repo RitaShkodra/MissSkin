@@ -16,7 +16,6 @@
     
     
 
-    // Log the action
     $veprimi = 'Delete Product';
     $userId = $_SESSION['user_id']; 
     $koha = date('Y-m-d H:i:s');

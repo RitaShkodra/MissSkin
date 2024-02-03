@@ -7,44 +7,7 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
     header("Location: home.php");
         exit;
 }
-// session_start();
-// if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-//     header("location: home.php");
-//     exit;
-// }
-// include "LoginLogic.php";
 
-
-// session_start();
-
-// if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-//     header("location: home.php");
-//     exit;
-// }
-
-// include "simpleUser.php";
-// include "UserMapper.php";
-// include "LoginLogic.php";
-
-// // $userMapper = new UserMapper(); // Krijoni instancën e UserMapper
-// $formData = $_POST;
-// $loginHandler = new LoginLogic($formData);
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-
-//     if ($loginHandler->loginUser($username, $password)) {
-//         header("Location: home.php");
-//         exit;
-//     } else {
-//         $error = "Invalid username or password.";
-//     }
-// }
-
-
-
-// Include necessary files
 include "LoginLogic.php";
 include_once 'UserMapper.php';
 
@@ -85,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
            <a href="login.php" class="LogIn active"> <label for="" >Log In</label></a>
            <?php 
            if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
-                // Display the Dashboard link only for users with role 1 (admin)
                 echo '<a href="dashboard.php" class="Dashboard active">Dashboard</a>';
             }
            ?>

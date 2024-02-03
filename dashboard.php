@@ -198,7 +198,6 @@ $veprimet = new Veprimet($db->pdo);
     <div class="bNews">
       <h2>Blog News</h2>
       <table>
-        <!-- Tabela për Blog News -->
         <thead>
           <tr>
             <th>Blog</th>
@@ -207,7 +206,6 @@ $veprimet = new Veprimet($db->pdo);
           </tr>
         </thead>
         <tbody>
-          <!-- Rreshtat e dhënave për Blog News -->
           <tr>
             <td>Post 1</td>
             <td>2024-01-20</td>
@@ -228,7 +226,6 @@ $veprimet = new Veprimet($db->pdo);
     <div class="bNews">
       <h2>Face Cream Products</h2>
       <table>
-        <!-- Tabela për Face Cream -->
         <thead>
           <tr>
             <th>Product</th>
@@ -256,7 +253,6 @@ $veprimet = new Veprimet($db->pdo);
     <div class="bNews">
       <h2>Face Serum Products</h2>
       <table>
-        <!-- Tabela për Blog News -->
         <thead>
           <tr>
             <th>Product</th>
@@ -265,7 +261,6 @@ $veprimet = new Veprimet($db->pdo);
           </tr>
         </thead>
         <tbody>
-          <!-- Rreshtat e dhënave për Face Serums -->
           <tr>
             <td>Post 1</td>
             <td>2024-01-20</td>
@@ -286,7 +281,6 @@ $veprimet = new Veprimet($db->pdo);
     <div class="bNews">
       <h2>Social Links</h2>
       <table>
-        <!-- Tabela për Blog News -->
         <thead>
           <tr>
             <th>Links</th>
@@ -295,7 +289,6 @@ $veprimet = new Veprimet($db->pdo);
           </tr>
         </thead>
         <tbody>
-          <!-- Rreshtat e dhënave për  Social Links -->
           <tr>
             <td>Post 1</td>
             <td>2024-01-20</td>
@@ -316,7 +309,6 @@ $veprimet = new Veprimet($db->pdo);
     <div class="bNews">
       <h2>Beauty Community-About Us</h2>
       <table>
-        <!-- Tabela për Blog News -->
         <thead>
           <tr>
             <th>News</th>
@@ -325,7 +317,6 @@ $veprimet = new Veprimet($db->pdo);
           </tr>
         </thead>
         <tbody>
-          <!-- Rreshtat e dhënave për  Beauty Community -->
           <tr>
             <td>Post 1</td>
             <td>2024-01-20</td>
@@ -345,7 +336,6 @@ $veprimet = new Veprimet($db->pdo);
     <div class="bNews">
       <h2>Body Cream Products</h2>
       <table>
-        <!-- Tabela për Blog News -->
         <thead>
           <tr>
             <th>Product</th>
@@ -354,7 +344,6 @@ $veprimet = new Veprimet($db->pdo);
           </tr>
         </thead>
         <tbody>
-          <!-- Rreshtat e dhënave për  Body Cream -->
           <tr>
             <td>Post 1</td>
             <td>2024-01-20</td>
@@ -374,7 +363,6 @@ $veprimet = new Veprimet($db->pdo);
     <div class="bNews">
       <h2>Hair Products</h2>
       <table>
-        <!-- Tabela për Blog News -->
         <thead>
           <tr>
             <th>Product</th>
@@ -383,7 +371,6 @@ $veprimet = new Veprimet($db->pdo);
           </tr>
         </thead>
         <tbody>
-          <!-- Rreshtat e dhënave për  Body Cream -->
           <tr>
             <td>Post 1</td>
             <td>2024-01-20</td>

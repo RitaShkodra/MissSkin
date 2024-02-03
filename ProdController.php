@@ -39,18 +39,10 @@ class ProdController
     
         $this->productType($request['img'], $request['titulli'], $request['cmimi'], $request['pershkrimi'], $productType);
 
-        
-
-       
     
         return header('Location: dashboard.php');
        
 
-       
-
-
-       
-      
     }
     private function productType($img, $titulli, $cmimi, $pershkrimi, $productType)
     {
@@ -92,18 +84,31 @@ class ProdController
     }
 
     public function update($request, $id)
-{
-    $request['img'] = './Fotot/' . $request['img'];
-    $query = $this->db->pdo->prepare('UPDATE product SET Emri = :Emri, Foto = :Foto, Cmimi = :Cmimi, Pershkrimi = :Pershkrimi WHERE id = :id');
-    $query->bindParam(':Emri', $request['titulli']);
-    $query->bindParam(':Foto', $request['img']);
-    $query->bindParam(':Cmimi', $request['cmimi']);
-    $query->bindParam(':Pershkrimi', $request['pershkrimi']);
-    $query->bindParam(':id', $id);
-    $query->execute();
-
-    return header('Location: dashboard.php');
-}
+    {
+     
+        if (!empty($_FILES['img']['tmp_name'])) {
+           
+            $uploadedFile = $_FILES['img']['tmp_name'];
+            $targetFilePath = './Fotot/' . basename($_FILES['img']['name']);
+    
+            if (move_uploaded_file($uploadedFile, $targetFilePath)) {
+                $request['img'] = $targetFilePath;
+            } else {
+              
+            }
+        }
+    
+        
+        $query = $this->db->pdo->prepare('UPDATE product SET Emri = :Emri, Foto = :Foto, Cmimi = :Cmimi, Pershkrimi = :Pershkrimi WHERE id = :id');
+        $query->bindParam(':Emri', $request['titulli']);
+        $query->bindParam(':Foto', $request['img']);
+        $query->bindParam(':Cmimi', $request['cmimi']);
+        $query->bindParam(':Pershkrimi', $request['pershkrimi']);
+        $query->bindParam(':id', $id);
+        $query->execute();
+    
+        return header('Location: dashboard.php');
+    }
 
     public function delete($id)
     {
